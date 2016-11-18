@@ -18,5 +18,5 @@ Route::get('/', function () {
 
 Route::get('/login', function () {
 
-    return view('web.home');
+    return view('login');
 });
