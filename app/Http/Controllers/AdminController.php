@@ -16,8 +16,8 @@ class AdminController extends Controller
      */
     public function index()
     {
-        var_dump('admin');
-        die();
+
+        return view('admin.home');
     }
 
     /**

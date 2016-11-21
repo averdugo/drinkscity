@@ -29,7 +29,7 @@ Route::controllers([
 	'password' => 'Auth\PasswordController',
 ]);
 
-Route::resource('admin', 'AdminController', array('as'=>'admin') );
+Route::resource('admins', 'AdminController');
 Route::resource('product', 'ProductController');
 Route::resource('user', 'UserController');
 Route::resource('store', 'StoreController');
@@ -41,7 +41,7 @@ Route::post('/login', function (Request $req) {
 
         switch ($user->type) {
             case 1:
-                return view('admin.home');
+                return view('admin.layout');
                 break;
             case 2:
                 return view('clients.home');
