@@ -29,28 +29,36 @@
       <div class="login_wrapper">
         <div class="animate form login_form">
           <section class="login_content">
-            <form>
-              <h1>Admin</h1>
-              <div>
-                <input type="text" class="form-control" placeholder="Nombre de Usuario" required="" />
-              </div>
-              <div>
-                <input type="password" class="form-control" placeholder="Password" required="" />
-              </div>
-              <div>
-                <a class="btn btn-default submit" href="index.html">Ingreso</a>
-                <a class="reset_pass" href="#">Cambio Clave</a>
-              </div>
-
-              <div class="clearfix"></div>
-
-              <div class="separator">
-                <div>
-                  <h1><img src="img/logo.png" alt="" /></h1>
-
+            @if (session('status'))
+                <div class="alert alert-danger">
+                    {{ session('status') }}
                 </div>
-              </div>
-            </form>
+            @endif
+            {!! Form::open(['url' => 'login']) !!}
+                <h1>Admin</h1>
+                <div>
+                  <input name="username" type="text" class="form-control" placeholder="Nombre de Usuario" required="" />
+                </div>
+                <div>
+                  <input name="password" type="password" class="form-control" placeholder="Password" required="" />
+                </div>
+                <div>
+                  <button type="submit" class="btn btn-default" name="button">Ingreso</button>
+                  <a class="reset_pass" href="#">Cambio Clave</a>
+                </div>
+
+                <div class="clearfix"></div>
+
+                <div class="separator">
+                  <div>
+                    <h1><img src="img/logo.png" alt="" /></h1>
+
+                  </div>
+                </div>
+            {!! Form::close() !!}
+
+
+
           </section>
         </div>
       </div>

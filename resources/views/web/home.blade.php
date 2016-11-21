@@ -80,8 +80,6 @@
 			<div class="row">
 				<div class="mbr-table-md-up">
 
-
-
 				  <div class="mbr-table-cell mbr-right-padding-md-up col-md-5 text-xs-center text-md-right">
 					  <h3 class="mbr-section-title display-2">TU MARCA EN DRINKS CITY</h3>
 					  <div class="lead">

@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Http\Request;
+use App\User;
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -19,4 +21,36 @@ Route::get('/', function () {
 Route::get('/login', function () {
 
     return view('login');
+});
+
+
+Route::controllers([
+	'auth' => 'Auth\AuthController',
+	'password' => 'Auth\PasswordController',
+]);
+
+Route::resource('admin', 'AdminController', array('as'=>'admin') );
+Route::resource('product', 'ProductController');
+Route::resource('user', 'UserController');
+Route::resource('store', 'StoreController');
+
+Route::post('/login', function (Request $req) {
+
+    $user = User::where('username', $req->username)->first();
+    if ($user && Hash::check($req->password, $user->password )) {
+
+        switch ($user->type) {
+            case 1:
+                return view('admin.home');
+                break;
+            case 2:
+                return view('clients.home');
+                break;
+        }
+
+    }else{
+        return redirect('login')->with('status', 'Perfil No Encontrado');
+    }
+
+
 });

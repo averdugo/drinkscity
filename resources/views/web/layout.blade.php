@@ -35,5 +35,9 @@
 		<div class="pageFoo">
 			@include('web.footer')
 		</div>
+        <script src="assets/web/assets/jquery/jquery.min.js"></script>
+        <script src="https://www.atlasestateagents.co.uk/javascript/tether.min.js"></script><!-- Tether for Bootstrap -->
+
+        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     </body>
 </html>
