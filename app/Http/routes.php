@@ -32,7 +32,7 @@ Route::controllers([
 Route::resource('admins', 'AdminController');
 Route::resource('product', 'ProductController');
 Route::resource('user', 'UserController');
-Route::resource('store', 'StoreController');
+Route::resource('stores', 'StoreController');
 
 Route::post('/login', function (Request $req) {
 
@@ -41,7 +41,7 @@ Route::post('/login', function (Request $req) {
 
         switch ($user->type) {
             case 1:
-                return view('admin.layout');
+                return view('admin.home');
                 break;
             case 2:
                 return view('clients.home');
