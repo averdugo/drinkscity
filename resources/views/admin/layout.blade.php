@@ -19,13 +19,13 @@
 		<link href="/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
 		<!-- bootstrap-progressbar -->
 		<link href="/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
-		<!-- JQVMap -->
-		<link href="/vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>
+
 		<!-- bootstrap-daterangepicker -->
 		<link href="/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
 
 		<!-- Custom Theme Style -->
 		<link href="/css/custom.min.css" rel="stylesheet">
+		<link href="/css/sweetalert.css" rel="stylesheet">
 	</head>
   	<body class="nav-md">
     	<div class="container body">
@@ -87,9 +87,17 @@
 	    <!-- bootstrap-daterangepicker -->
 	    <script src="/vendors/moment/min/moment.min.js"></script>
 	    <script src="/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+		<script src="/js/sweetalert.min.js"></script>
 
 	    <!-- Custom Theme Scripts -->
 	    <script src="/js/custom.min.js"></script>
+		<script src="/js/jquery.serialize-object.min.js"></script>
+		<script src="/js/main.js"></script>
+
+		@include('admin.partials.storeCreateModal')
+		@include('admin.partials.userCreateModal')
+
+		@yield('modals')
 
 		@yield('scripts')
 	</body>

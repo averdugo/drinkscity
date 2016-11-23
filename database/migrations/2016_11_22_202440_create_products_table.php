@@ -19,6 +19,7 @@ class CreateProductsTable extends Migration
             $table->mediumText('description');
             $table->mediumText('schedules');
             $table->string('price');
+            $table->integer('store_id');
             $table->timestamps();
         });
     }

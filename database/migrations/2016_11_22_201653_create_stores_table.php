@@ -24,6 +24,8 @@ class CreateStoresTable extends Migration
             $table->integer('store_type');
             $table->mediumText('schedules');
             $table->string('photo');
+            $table->integer('user_id');
+            $table->integer('status');
             $table->timestamps();
         });
     }
