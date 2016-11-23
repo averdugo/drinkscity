@@ -33,6 +33,7 @@ Route::resource('admins', 'AdminController');
 Route::resource('product', 'ProductController');
 Route::resource('user', 'UserController');
 Route::resource('stores', 'StoreController');
+Route::get('clients/{id}', 'AdminController@clients');
 
 Route::post('/login', function (Request $req) {
 
@@ -44,7 +45,7 @@ Route::post('/login', function (Request $req) {
                 return view('admin.home');
                 break;
             case 2:
-                return view('clients.home');
+                return Redirect::to('clients/' . $user->id);
                 break;
         }
 

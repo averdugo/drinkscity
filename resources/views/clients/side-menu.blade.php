@@ -2,7 +2,7 @@
 	<div class="left_col scroll-view">
 		<div class="navbar nav_title" style="border: 0;">
 			<a href="/" class="site_title">
-				<img src="img/logo2.png" alt="" style="    width: 50px;" />
+				<img src="/img/logo2.png" alt="" style="    width: 50px;" />
 				<span>DrinksCity</span>
 			</a>
 		</div>
@@ -15,41 +15,29 @@
 
 				<ul class="nav side-menu">
 					<li>
-						<a href="/admins"><i class="fa fa-home"></i> Inicio</a>
+						<a href="/user"><i class="fa fa-home"></i> Inicio</a>
 					</li>
-					<li><a><i class="fa fa-users"></i> Usuarios<span class="fa fa-chevron-down"></span></a>
-						<ul class="nav child_menu">
-							<li><a href="" data-toggle="modal" data-target="#userCreate">Crear Usuario</a></li>
-							<li><a href="/user">Ver Usuarios</a></li>
-						</ul>
-					</li>
+
 					<li><a><i class="fa fa-map-pin"></i> Tiendas <span class="fa fa-chevron-down"></span></a>
 						<ul class="nav child_menu">
-							<li><a href="">Tiendas Pendientes</a></li>
+							<li><a href="">Mis Tiendas</a></li>
 							<li><a href="" data-toggle="modal" data-target="#storeCreate">Crear Tienda</a></li>
-							<li><a href="">Ver Tiendas</a></li>
 						</ul>
 					</li>
 					<li><a><i class="fa fa-briefcase"></i> Productos <span class="fa fa-chevron-down"></span></a>
 						<ul class="nav child_menu">
 							<li><a href="">Crear Producto</a></li>
-							<li><a href="">Ver Producto</a></li>
+							<li><a href="">Ver Productos</a></li>
 						</ul>
 					</li>
 					<li><a><i class="fa fa-newspaper-o"></i> Registros <span class="fa fa-chevron-down"></span></a>
 						<ul class="nav child_menu">
-							<li><a href="">Tienda</a></li>
 							<li><a href="">Productos</a></li>
 							<li><a href="">Canjeados</a></li>
 							<li><a href="">Ranking</a></li>
 						</ul>
 					</li>
-					<li><a><i class="fa fa-comments"></i> Notificaciones <span class="fa fa-chevron-down"></span></a>
-						<ul class="nav child_menu">
-							<li><a href="">Crear Notificacion</a></li>
-							<li><a href="">Ver Notificacion</a></li>
-						</ul>
-					</li>
+
 				</ul>
 			</div>
 		</div>

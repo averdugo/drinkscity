@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\User;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -19,6 +19,14 @@ class AdminController extends Controller
 
         return view('admin.home');
     }
+
+    public function clients($u)
+    {
+
+        $user = User::findOrFail($u);
+        return view('clients.home',compact('user'));
+    }
+
 
     /**
      * Show the form for creating a new resource.
