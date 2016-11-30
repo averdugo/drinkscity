@@ -33,8 +33,11 @@ Route::resource('admins', 'AdminController');
 Route::resource('product', 'ProductController');
 Route::resource('user', 'UserController');
 Route::resource('stores', 'StoreController');
+Route::resource('notification', 'NotificationController');
+
 Route::get('clients/{id}', 'AdminController@clients');
 Route::get('getUsers', 'UserController@getUsers');
+Route::get('getStores', 'StoreController@getStores');
 
 Route::post('/login', function (Request $req) {
 

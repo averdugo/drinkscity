@@ -18,7 +18,12 @@ class StoreController extends Controller
      */
     public function index()
     {
-        //
+        $stores = Store::all();
+        /*foreach ($users as $u) {
+            $name = UserType::findOrFail($u->type);
+            $u->type = $name->name;
+        }*/
+        return view('admin.storeList',compact('stores'));
     }
 
     /**
@@ -63,6 +68,18 @@ class StoreController extends Controller
 
             return $e->getMessage();
         }
+    }
+
+    public function getStores(){
+        $store = Store::all();
+        $data = "<option value=''>Seleccione Tienda</option>";
+        foreach ($store as $s) {
+            $data .= sprintf(
+                '<option value="%s">%s</option>', $s->id,$s->name
+            );
+        }
+
+        return $data;
     }
 
     /**

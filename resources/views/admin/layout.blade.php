@@ -96,6 +96,8 @@
 
 		@include('admin.partials.storeCreateModal')
 		@include('admin.partials.userCreateModal')
+		@include('admin.partials.productCreateModal')
+		@include('admin.partials.notiCreateModal')
 
 		@yield('modals')
 

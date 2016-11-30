@@ -27,13 +27,13 @@
 						<ul class="nav child_menu">
 							<li><a href="">Tiendas Pendientes</a></li>
 							<li><a href="" class="btnCrearTienda">Crear Tienda</a></li>
-							<li><a href="">Ver Tiendas</a></li>
+							<li><a href="/stores">Ver Tiendas</a></li>
 						</ul>
 					</li>
 					<li><a><i class="fa fa-briefcase"></i> Productos <span class="fa fa-chevron-down"></span></a>
 						<ul class="nav child_menu">
-							<li><a href="">Crear Producto</a></li>
-							<li><a href="">Ver Producto</a></li>
+							<li><a href="" class="btnCrearProducto">Crear Producto</a></li>
+							<li><a href="/product">Ver Producto</a></li>
 						</ul>
 					</li>
 					<li><a><i class="fa fa-newspaper-o"></i> Registros <span class="fa fa-chevron-down"></span></a>
@@ -46,8 +46,8 @@
 					</li>
 					<li><a><i class="fa fa-comments"></i> Notificaciones <span class="fa fa-chevron-down"></span></a>
 						<ul class="nav child_menu">
-							<li><a href="">Crear Notificacion</a></li>
-							<li><a href="">Ver Notificacion</a></li>
+							<li><a href="" class="btnCrearNoti">Crear Notificacion</a></li>
+							<li><a href="/notification">Ver Notificacion</a></li>
 						</ul>
 					</li>
 				</ul>

@@ -48,6 +48,35 @@ $(function(){
 			}
 		});
 	})
+	$('.newProduct').click(function(e){
+		e.preventDefault();
+		var data = $('#productCreateForm').serializeObject();
+		var url = "/product"
+		$.post(url,data,function(r){
+			if (r == 'ok') {
+				$('#productCreate').modal('hide');
+				swal({   title: "Producto Creado",  timer: 2000,   showConfirmButton: false });
+
+			}else{
+				swal({   title: "Error",  timer: 2000,   showConfirmButton: false });
+			}
+		});
+	})
+
+	$('.newNoti').click(function(e){
+		e.preventDefault();
+		var data = $('#notiCreateForm').serializeObject();
+		var url = "/notification"
+		$.post(url,data,function(r){
+			if (r == 'ok') {
+				$('#notiCreate').modal('hide');
+				swal({   title: "Notificacion Creada",  timer: 2000,   showConfirmButton: false });
+
+			}else{
+				swal({   title: "Error",  timer: 2000,   showConfirmButton: false });
+			}
+		});
+	})
 
 	$('.btnCrearTienda').click(function(e){
 		e.preventDefault();
@@ -55,6 +84,24 @@ $(function(){
 		$.get(url,function(r){
 			$('#userSelect').html(r);
 			$('#storeCreate').modal('show');
+		})
+	})
+
+	$('.btnCrearNoti').click(function(e){
+		e.preventDefault();
+		var url = "getUsers"
+		$.get(url,function(r){
+			$('#userSelect2').html(r);
+			$('#notiCreate').modal('show');
+		})
+	})
+
+	$('.btnCrearProducto').click(function(e){
+		e.preventDefault();
+		var url = "getStores"
+		$.get(url,function(r){
+			$('#storeSelect').html(r);
+			$('#productCreate').modal('show');
 		})
 	})
 

@@ -6,10 +6,9 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\{Products, User};
-use Carbon\Carbon;
+use App\Notification;
 
-class ProductController extends Controller
+class NotificationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,12 +17,12 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Products::all();
+        $notis = Notification::all();
         /*foreach ($users as $u) {
             $name = UserType::findOrFail($u->type);
             $u->type = $name->name;
         }*/
-        return view('admin.productList',compact('products'));
+        return view('admin.notisList',compact('notis'));
     }
 
     /**
@@ -45,15 +44,11 @@ class ProductController extends Controller
     public function store(Request $r)
     {
         try {
-            $product = new Products();
-            $product->photo = "";
-            $product->title = $r->title;
-            $product->description = $r->description;
-            $product->schedules = $r->schedules;
-            $product->price = $r->price;
-            $product->store_id = $r->store_id;
-            $product->created_at = Carbon::now();
-            $product->save();
+            $noti = new Notification();
+            $noti->title = $r->title;
+            $noti->user_id = $r->user_id;
+            $noti->description = $r->description;
+            $noti->save();
             return 'ok';
 
         } catch (\PDOException $e) {
