@@ -34,6 +34,7 @@ Route::resource('product', 'ProductController');
 Route::resource('user', 'UserController');
 Route::resource('stores', 'StoreController');
 Route::get('clients/{id}', 'AdminController@clients');
+Route::get('getUsers', 'UserController@getUsers');
 
 Route::post('/login', function (Request $req) {
 

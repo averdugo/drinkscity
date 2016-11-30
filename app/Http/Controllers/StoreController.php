@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\{Store, User};
+use Carbon\Carbon;
 
 class StoreController extends Controller
 {
@@ -35,9 +37,32 @@ class StoreController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $r)
     {
-        //
+
+        try {
+            $store = new Store();
+            $store->user_id = $r->user_id;
+            $store->r_name = $r->r_name;
+            $store->r_phone = $r->r_phone;
+            $store->name = $r->name;
+            $store->email = $r->email;
+            $store->place = $r->place;
+            $store->commune_id = $r->commune_id;
+            $store->commune_id = $r->commune_id;
+            $store->c_phone = $r->c_phone;
+            $store->store_type = $r->store_type;
+            $store->schedules = $r->schedules;
+            $store->photo = "";
+            $store->status = $r->status;
+            $store->created_at = Carbon::now();
+            $store->save();
+            return 'ok';
+
+        } catch (\PDOException $e) {
+
+            return $e->getMessage();
+        }
     }
 
     /**

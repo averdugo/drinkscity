@@ -25,6 +25,18 @@ class UserController extends Controller
         return view('admin.userList',compact('users'));
     }
 
+    public function getUsers(){
+        $users = User::all();
+        $data = "<option value=''>Seleccione Usuario</option>";
+        foreach ($users as $u) {
+            $data .= sprintf(
+                '<option value="%s">%s</option>', $u->id,$u->username
+            );
+        }
+
+        return $data;
+    }
+
     /**
      * Show the form for creating a new resource.
      *

@@ -7,6 +7,7 @@
 			</div>
 			<div class="modal-body">
 				{!! Form::open(['url' => 'stores']) !!}
+					<input id="userIdStoreCreate" type="hidden" name="user_id" value="{{ $user->id }}">
 					<div class="form-group">
 						<input name="r_name" type="text" class="form-control" placeholder="Nombre de Representante" required="" />
 					</div>
