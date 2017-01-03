@@ -49,6 +49,7 @@
 		  	  <!-- /footer content -->
 		  	</div>
     	</div>
+		 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 	    <!-- jQuery -->
 	    <script src="/vendors/jquery/dist/jquery.min.js"></script>
@@ -98,6 +99,7 @@
 		@include('admin.partials.userCreateModal')
 		@include('admin.partials.productCreateModal')
 		@include('admin.partials.notiCreateModal')
+		@include('admin.partials.userEditModal')
 
 		@yield('modals')
 

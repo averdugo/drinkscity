@@ -34,10 +34,10 @@
                     {{ session('status') }}
                 </div>
             @endif
-            {!! Form::open(['url' => 'login']) !!}
+            {!! Form::open(['url' => 'adminlogin']) !!}
                 <h1>Admin</h1>
                 <div>
-                  <input name="username" type="text" class="form-control" placeholder="Nombre de Usuario" required="" />
+                  <input name="email" type="email" class="form-control" placeholder="Email" required="" />
                 </div>
                 <div>
                   <input name="password" type="password" class="form-control" placeholder="Password" required="" />

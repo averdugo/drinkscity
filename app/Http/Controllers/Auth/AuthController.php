@@ -7,9 +7,12 @@ use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
-
+use Auth;
+use Illuminate\Http\Request;
 class AuthController extends Controller
 {
+    protected $redirectPath = '/dashboard';
+    protected $loginPath = '/login';
     /*
     |--------------------------------------------------------------------------
     | Registration & Login Controller
@@ -31,6 +34,12 @@ class AuthController extends Controller
     public function __construct()
     {
         $this->middleware('guest', ['except' => 'getLogout']);
+    }
+
+    public function logina(Request $req)
+    {
+        var_dump($req);
+        die();
     }
 
     /**

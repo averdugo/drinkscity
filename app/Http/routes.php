@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use App\User;
+use Auth;
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -29,6 +30,9 @@ Route::controllers([
 	'password' => 'Auth\PasswordController',
 ]);
 
+
+
+
 Route::resource('admins', 'AdminController');
 Route::resource('product', 'ProductController');
 Route::resource('user', 'UserController');
@@ -39,23 +43,26 @@ Route::get('clients/{id}', 'AdminController@clients');
 Route::get('getUsers', 'UserController@getUsers');
 Route::get('getStores', 'StoreController@getStores');
 
-Route::post('/login', function (Request $req) {
+Route::post('/adminlogin', function (Request $req) {
 
-    $user = User::where('username', $req->username)->first();
-    if ($user && Hash::check($req->password, $user->password )) {
-
-        switch ($user->type) {
-            case 1:
-                return view('admin.home');
-                break;
-            case 2:
-                return Redirect::to('clients/' . $user->id);
-                break;
-        }
-
+    if (Auth::attempt(['email' => $req->email, 'password' => $req->password])) {
+            $user = Auth::user();
+            switch ($user->type) {
+                case 1:
+                    return view('admin.home');
+                    break;
+                case 2:
+                    return Redirect::to('clients/' . $user->id);
+                    break;
+            }
     }else{
         return redirect('login')->with('status', 'Perfil No Encontrado');
     }
 
+
+});
+
+Route::get('/adminlogout', function (Request $req) {
+    Auth::logout();
 
 });

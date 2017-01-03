@@ -10,6 +10,11 @@ use Illuminate\Database\QueryException;
 
 class UserController extends Controller
 {
+
+    public function __construct()
+    {
+      $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -80,7 +85,8 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::findOrFail($id);
+        return $user;
     }
 
     /**
@@ -114,6 +120,12 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::findOrFail($id);
+        if($user->delete()){
+            return 'ok';
+        }else{
+            return 'no';
+        };
+
     }
 }

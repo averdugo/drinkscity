@@ -15,7 +15,7 @@
                     <ul class="dropdown-menu dropdown-usermenu pull-right">
                         <li><a href="javascript:;"> Perfil</a></li>
                         <li><a href="javascript:;">Ver Tu Tienda</a></li>
-                        <li><a href=""><i class="fa fa-sign-out pull-right"></i>Salir</a></li>
+                        <li><a href="" class="adminLogout"><i class="fa fa-sign-out pull-right"></i>Salir</a></li>
                     </ul>
                 </li>
                 <li role="presentation" class="dropdown">

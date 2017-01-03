@@ -15,7 +15,7 @@
 									<th class="column-title">Nombre de Usuario</th>
 									<th class="column-title">Email</th>
 									<th class="column-title">Tipo</th>
-									<th class="column-title">Creado el </th>
+
 									<th class="column-title "><span class="nobr">Acciones</span></th>
 								</tr>
 							</thead>
@@ -25,10 +25,12 @@
 									    <td class=" ">{{ $user->username }}</td>
 										<td class=" ">{{ $user->email }} </td>
 										<td class=" ">{{ $user->type }}</td>
-										<td class=" ">{{ $user->created_at }}</td>
-										<td>
-											<button type="button" title="Ver Tiendas" class="btn btn-default"><i class="fa fa-building"></i></button>
-											<button type="button" title="Eliminar Usuario" class="btn btn-default"><i class="fa fa-minus"></i></button>
+
+										<td data-id="{{ $user->id }}">
+											<button type="button" title="Editar Usuario" class="btn btn-default editUser"><i class="fa fa-pencil"></i></button>
+											<button type="button" title="Ver Tiendas" class="btn btn-default seeStores"><i class="fa fa-building"></i></button>
+											<button type="button" title="Editar Contraseña" class="btn btn-default editPass sr-only"><i class="fa fa-key"></i></button>
+											<button type="button" title="Eliminar Usuario" class="btn btn-default deleteUser"><i class="fa fa-minus"></i></button>
 										</td>
 									</tr>
 								@endforeach

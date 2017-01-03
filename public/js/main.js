@@ -20,8 +20,12 @@ $(function(){
 					closeOnCancel: true
 				}, function(isConfirm){
 					if (isConfirm) {
-						$('#storeCreate').modal('show');
-					}
+						if (isConfirm) {
+							$('#storeCreate').modal('show');
+						} else {
+							location.href="/users";
+						}
+					};
 				});
 			}else{
 				swal({   title: "Error",  timer: 2000,   showConfirmButton: false });
@@ -85,6 +89,53 @@ $(function(){
 			$('#userSelect').html(r);
 			$('#storeCreate').modal('show');
 		})
+	})
+
+	$('.seeStores').click(function(e){
+		e.preventDefault();
+		var userId = $(this).parent().data('id');
+		location.href="/stores/"+userId;
+	})
+	$('.adminLogout').click(function(e){
+		e.preventDefault();
+		var url ="/adminlogout"
+		$.get(url,function(){
+			location.href="/login";
+		})
+	})
+
+	$('.editUser').click(function(e){
+		e.preventDefault();
+		var userId = $(this).parent().data('id');
+		var url = "/user/"+userId;
+		$.get(url,function(r){
+			console.log(r);
+			$('#usernameEdit').val(r.username);
+
+			$('#emailEdit').val(r.email);
+			$('#userUpdateModal select').val(r.type);
+			$('#userUpdateModal').modal('show');
+		})
+
+	})
+
+	$('.deleteUser').click(function(e){
+		e.preventDefault();
+		var _token = $('input[name="_token"]').val();
+		var userId = $(this).parent().data('id');
+		$.ajax({
+		    url: '/user/'+userId,
+		    type: 'DELETE',
+			data: { _token : _token },
+		    success: function(r) {
+				if (r == 'ok') {
+					location.reload();
+				}else(r == 'no'){
+					swal({   title: "Error Usuario no Borrado",  timer: 2000,   showConfirmButton: false });
+				}
+
+		    }
+		});
 	})
 
 	$('.btnCrearNoti').click(function(e){
