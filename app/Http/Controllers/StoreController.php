@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\{Store, User};
+use App\models\{Store, Comuna, Region, Provincia, StoreType};
+use App\User;
 use Carbon\Carbon;
-
+use Illuminate\Support\Facades\Request;
 class StoreController extends Controller
 {
     /**
@@ -19,10 +20,7 @@ class StoreController extends Controller
     public function index()
     {
         $stores = Store::all();
-        /*foreach ($users as $u) {
-            $name = UserType::findOrFail($u->type);
-            $u->type = $name->name;
-        }*/
+
         return view('admin.storeList',compact('stores'));
     }
 
@@ -33,7 +31,11 @@ class StoreController extends Controller
      */
     public function create()
     {
-        //
+        $users = User::lists('username','id');
+        $tipoTienda = StoreType::lists('Descripcion','id_tipo_tienda');
+        $regiones = Region::lists('region_nombre','region_id');
+
+        return view('admin.storeCreate',compact('users', 'regiones', 'tipoTienda'));
     }
 
     /**
@@ -46,23 +48,9 @@ class StoreController extends Controller
     {
 
         try {
-            $store = new Store();
-            $store->user_id = $r->user_id;
-            $store->r_name = $r->r_name;
-            $store->r_phone = $r->r_phone;
-            $store->name = $r->name;
-            $store->email = $r->email;
-            $store->place = $r->place;
-            $store->commune_id = $r->commune_id;
-            $store->commune_id = $r->commune_id;
-            $store->c_phone = $r->c_phone;
-            $store->store_type = $r->store_type;
-            $store->schedules = $r->schedules;
-            $store->photo = "";
-            $store->status = $r->status;
-            $store->created_at = Carbon::now();
+            $store = new Store(Request::all());
             $store->save();
-            return 'ok';
+            return redirect('stores');
 
         } catch (\PDOException $e) {
 
@@ -80,6 +68,11 @@ class StoreController extends Controller
         }
 
         return $data;
+    }
+
+    public function getStoresById($user_id){
+        $stores = Store::where('user_id', $user_id)->get();
+        return view('admin.storeList',compact('stores'));
     }
 
     /**
@@ -101,7 +94,11 @@ class StoreController extends Controller
      */
     public function edit($id)
     {
-        //
+        $users = User::lists('username','id');
+        $tipoTienda = StoreType::lists('Descripcion','id_tipo_tienda');
+        $regiones = Region::lists('region_nombre','region_id');
+        $store = Store::findOrFail($id);
+        return view('admin.storeEdit',compact('store','users', 'regiones', 'tipoTienda'));
     }
 
     /**
@@ -113,7 +110,12 @@ class StoreController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $store = Store::findOrFail($id);
+        $store->fill(Request::all());
+        $store->save();
+
+
+        return redirect('stores');
     }
 
     /**
@@ -124,6 +126,12 @@ class StoreController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $store = Store::findOrFail($id);
+
+        if($store->delete()){
+            return 'ok';
+        }else{
+            return 'no';
+        };
     }
 }

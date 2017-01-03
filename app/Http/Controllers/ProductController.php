@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\{Products, User};
+use App\models\{Products};
+use App\User;
 use Carbon\Carbon;
 
 class ProductController extends Controller

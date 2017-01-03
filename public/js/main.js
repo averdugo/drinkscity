@@ -82,12 +82,39 @@ $(function(){
 		});
 	})
 
-	$('.btnCrearTienda').click(function(e){
-		e.preventDefault();
-		var url = "getUsers"
+	$('#selectRegion').on('change', function() {
+
+		var url ="/getProvincias/"+ this.value;
 		$.get(url,function(r){
-			$('#userSelect').html(r);
-			$('#storeCreate').modal('show');
+			$('#selectProvincia').html('');
+			select = document.getElementById('selectProvincia');
+			$.each( r, function( key, value ) {
+			  	var opt = document.createElement('option');
+			    opt.value = value.provincia_id;
+			    opt.innerHTML = value.provincia_nombre;
+			    select.appendChild(opt);
+			});
+
+			$('#selectProvinciaDiv').removeClass('sr-only');
+
+		})
+	})
+
+	$('#selectProvincia').on('change', function() {
+
+		var url ="/getComunas/"+ this.value;
+		$.get(url,function(r){
+			$('#selectComuna').html('');
+			select = document.getElementById('selectComuna');
+			$.each( r, function( key, value ) {
+			  	var opt = document.createElement('option');
+			    opt.value = value.comuna_id;
+			    opt.innerHTML = value.comuna_nombre;
+			    select.appendChild(opt);
+			});
+
+			$('#selectComunaDiv').removeClass('sr-only');
+
 		})
 	})
 
@@ -119,6 +146,11 @@ $(function(){
 
 	})
 
+	$('.editStore').click(function(){
+		var storeId = $(this).parent().data('id');
+		location.href="/stores/"+storeId+"/edit";
+	})
+
 	$('.deleteUser').click(function(e){
 		e.preventDefault();
 		var _token = $('input[name="_token"]').val();
@@ -128,12 +160,21 @@ $(function(){
 		    type: 'DELETE',
 			data: { _token : _token },
 		    success: function(r) {
-				if (r == 'ok') {
 					location.reload();
-				}else(r == 'no'){
-					swal({   title: "Error Usuario no Borrado",  timer: 2000,   showConfirmButton: false });
-				}
+		    }
+		});
+	})
 
+	$('.deleteStore').click(function(e){
+		e.preventDefault();
+		var _token = $('input[name="_token"]').val();
+		var storeId = $(this).parent().data('id');
+		$.ajax({
+		    url: '/stores/'+storeId,
+		    type: 'DELETE',
+			data: { _token : _token },
+		    success: function(r) {
+					location.reload();
 		    }
 		});
 	})

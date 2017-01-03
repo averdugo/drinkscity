@@ -26,7 +26,7 @@
 					<li><a><i class="fa fa-map-pin"></i> Tiendas <span class="fa fa-chevron-down"></span></a>
 						<ul class="nav child_menu">
 							<li><a href="">Tiendas Pendientes</a></li>
-							<li><a href="" class="btnCrearTienda">Crear Tienda</a></li>
+							<li><a href="/stores/create" class="">Crear Tienda</a></li>
 							<li><a href="/stores">Ver Tiendas</a></li>
 						</ul>
 					</li>

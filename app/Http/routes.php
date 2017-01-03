@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use App\User;
-use Auth;
+//use Auth;
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -42,6 +42,9 @@ Route::resource('notification', 'NotificationController');
 Route::get('clients/{id}', 'AdminController@clients');
 Route::get('getUsers', 'UserController@getUsers');
 Route::get('getStores', 'StoreController@getStores');
+Route::get('getStoresById/{id}', 'StoreController@getStoresById');
+Route::get('getProvincias/{id}', 'DrinkscityHelperController@getProvincias');
+Route::get('getComunas/{id}', 'DrinkscityHelperController@getComunas');
 
 Route::post('/adminlogin', function (Request $req) {
 
