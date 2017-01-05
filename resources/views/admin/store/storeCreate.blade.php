@@ -6,9 +6,12 @@
 			<div class="x_panel">
 				<div class="x_content">
 					<h2>Crear Tienda</h2>
-					{!! Form::open(['url' => 'stores']) !!}
-						<div class="col-xs-12 col-md-6">
 
+					<form class="" action="/stores" method="post" enctype="multipart/form-data">
+
+						 <input type="hidden" name="_token" value="{{ csrf_token() }}">
+						<div class="col-xs-12 col-md-6">
+							{!! Form::file('image', null) !!}
 							<div class="form-group">
 								<label for="">Seleccione Usuario</label>
 								<?= Form::select('user_id', $users,null,['class' => 'form-control']); ?>

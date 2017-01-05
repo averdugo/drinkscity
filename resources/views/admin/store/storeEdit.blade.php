@@ -5,7 +5,7 @@
 		<div class="col-md-12 col-sm-12 col-xs-12">
 			<div class="x_panel">
 				<div class="x_content">
-					<h2>Crear Tienda</h2>
+					<h2>Actualizar Tienda</h2>
 
 					{!! Form::model($store,['route'=>['stores.update',$store->id],'method'=>'PUT']) !!}
 						<div class="col-xs-12 col-md-6">

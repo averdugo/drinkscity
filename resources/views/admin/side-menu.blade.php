@@ -2,7 +2,7 @@
 	<div class="left_col scroll-view">
 		<div class="navbar nav_title" style="border: 0;">
 			<a href="/" class="site_title">
-				<img src="img/logo2.png" alt="" style="    width: 50px;" />
+				<img src="/img/logo2.png" alt="" style="    width: 50px;" />
 				<span>DrinksCity</span>
 			</a>
 		</div>
@@ -19,21 +19,22 @@
 					</li>
 					<li><a><i class="fa fa-users"></i> Usuarios<span class="fa fa-chevron-down"></span></a>
 						<ul class="nav child_menu">
-							<li><a href="" data-toggle="modal" data-target="#userCreate">Crear Usuario</a></li>
-							<li><a href="/user">Ver Usuarios</a></li>
+							<li><a href="" data-toggle="modal" data-target="#userCreate">Crear</a></li>
+							<li><a href="/user">Ver</a></li>
 						</ul>
 					</li>
 					<li><a><i class="fa fa-map-pin"></i> Tiendas <span class="fa fa-chevron-down"></span></a>
 						<ul class="nav child_menu">
 							<li><a href="">Tiendas Pendientes</a></li>
-							<li><a href="/stores/create" class="">Crear Tienda</a></li>
-							<li><a href="/stores">Ver Tiendas</a></li>
+							<li><a href="/stores/create" class="">Crear</a></li>
+							<li><a href="/stores">Ver</a></li>
 						</ul>
 					</li>
-					<li><a><i class="fa fa-briefcase"></i> Productos <span class="fa fa-chevron-down"></span></a>
+					<li><a><i class="fa fa-briefcase"></i> Avisos <span class="fa fa-chevron-down"></span></a>
 						<ul class="nav child_menu">
-							<li><a href="" class="btnCrearProducto">Crear Producto</a></li>
-							<li><a href="/product">Ver Producto</a></li>
+							<li><a href="" data-toggle="modal" data-target="#avisoC">Crear</a></li>
+							<li><a href="" data-toggle="modal" data-target="#avisoV">Ver</a></li>
+
 						</ul>
 					</li>
 					<li><a><i class="fa fa-newspaper-o"></i> Registros <span class="fa fa-chevron-down"></span></a>

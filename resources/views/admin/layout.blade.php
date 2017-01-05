@@ -97,7 +97,8 @@
 
 		@include('admin.partials.storeCreateModal')
 		@include('admin.partials.userCreateModal')
-		@include('admin.partials.productCreateModal')
+		@include('admin.partials.avisoC')
+		@include('admin.partials.avisoV')
 		@include('admin.partials.notiCreateModal')
 		@include('admin.partials.userEditModal')
 

@@ -34,6 +34,7 @@ Route::controllers([
 
 
 Route::resource('admins', 'AdminController');
+Route::resource('avisos', 'AvisoController');
 Route::resource('product', 'ProductController');
 Route::resource('user', 'UserController');
 Route::resource('stores', 'StoreController');
@@ -45,6 +46,7 @@ Route::get('getStores', 'StoreController@getStores');
 Route::get('getStoresById/{id}', 'StoreController@getStoresById');
 Route::get('getProvincias/{id}', 'DrinkscityHelperController@getProvincias');
 Route::get('getComunas/{id}', 'DrinkscityHelperController@getComunas');
+Route::get('avisos/create/{type}', 'AvisoController@create');
 
 Route::post('/adminlogin', function (Request $req) {
 
