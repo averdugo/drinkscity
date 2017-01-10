@@ -43,21 +43,23 @@
                   <input name="password" type="password" class="form-control" placeholder="Password" required="" />
                 </div>
                 <div>
-                  <button type="submit" class="btn btn-default" name="button">Ingreso</button>
-                  <a class="reset_pass" href="#">Cambio Clave</a>
+                  <button type="submit" class="btn btn-default " name="button">Ingreso</button>
+
                 </div>
 
                 <div class="clearfix"></div>
 
                 <div class="separator">
                   <div>
-                    <h1><img src="img/logo.png" alt="" /></h1>
+                    <h1><img src="img/logo.png" alt="" style="width:100%"/></h1>
 
                   </div>
                 </div>
             {!! Form::close() !!}
+            <script src="/vendors/jquery/dist/jquery.min.js"></script>
+            <script src="js/jquery.serialize-object.min.js" charset="utf-8"></script>
 
-
+            <script src="js/main.js" charset="utf-8"></script>
 
           </section>
         </div>

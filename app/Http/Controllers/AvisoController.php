@@ -6,7 +6,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\models\{Store, Aviso, Marca, TipoCC, TipoFamilia, TipoForma, TipoGrados, TipoProducto};
+use App\models\{Store, Aviso, Category, CategoryType, AvisoType};
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Input;
 use Intervention\Image\ImageManagerStatic as Image;
@@ -34,31 +34,23 @@ class AvisoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($type)
+    public function create()
     {
-        $tfamilia = TipoFamilia::lists('Descripcion','id_tipo_familia');
-        $tproducto = TipoProducto::lists('Descripcion','id_tipo_producto');
-        $tmarca = Marca::lists('Descripcion','id_marca');
-        $tforma = TipoForma::lists('Descripcion','id_tipo_forma');
-        $tgrados = TipoGrados::lists('Descripcion','id_tipo_grados');
-        $tcc = TipoCC::lists('Descripcion','id_tipo_cc');
+
         $stores = Store::lists('tienda_Nombre','id');
-        if ($type == 1 || $type == 2 || $type == 3 || $type == 5 ) {
-            return view('admin.avisos.standarCreate',compact(
-                                'type',
-                                'tfamilia',
-                                'tproducto',
-                                'tmarca',
-                                'tforma',
-                                'tgrados',
-                                'tcc',
-                                'stores'
-                    ));
-        }elseif ($type == 4) {
-            # code...
-        }elseif ($type == 6) {
-            # code...
-        }
+        $category = Category::lists('name','id');
+        $type = AvisoType::lists('descripcion','id');
+        return view('admin.avisos.standarCreate',compact(
+                            'type',
+                            'category',
+                            'stores'
+                ));
+    }
+
+    public function showT($type)
+    {
+        $avisos = Aviso::where('id_tipo_aviso',$type)->get();
+        return view('admin.avisos.avisoList',compact('avisos'));
     }
 
     /**
@@ -69,6 +61,7 @@ class AvisoController extends Controller
      */
     public function store(Request $request)
     {
+        
             $aviso = new Aviso(Request::all());
             $image = Input::file('image');
             $filename  = time() . '.' . $image->getClientOriginalExtension();

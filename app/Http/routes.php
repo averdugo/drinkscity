@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use App\User;
-//use Auth;
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -46,28 +46,8 @@ Route::get('getStores', 'StoreController@getStores');
 Route::get('getStoresById/{id}', 'StoreController@getStoresById');
 Route::get('getProvincias/{id}', 'DrinkscityHelperController@getProvincias');
 Route::get('getComunas/{id}', 'DrinkscityHelperController@getComunas');
-Route::get('avisos/create/{type}', 'AvisoController@create');
-
-Route::post('/adminlogin', function (Request $req) {
-
-    if (Auth::attempt(['email' => $req->email, 'password' => $req->password])) {
-            $user = Auth::user();
-            switch ($user->type) {
-                case 1:
-                    return view('admin.home');
-                    break;
-                case 2:
-                    return Redirect::to('clients/' . $user->id);
-                    break;
-            }
-    }else{
-        return redirect('login')->with('status', 'Perfil No Encontrado');
-    }
+Route::get('getCategoryType/{id}', 'DrinkscityHelperController@getCategoryType');
 
 
-});
-
-Route::get('/adminlogout', function (Request $req) {
-    Auth::logout();
-
-});
+Route::post('/adminlogin', 'LoginController@adminlogin');
+Route::get('/adminlogout', 'LoginController@adminlogout');

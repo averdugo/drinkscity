@@ -32,8 +32,8 @@
 					</li>
 					<li><a><i class="fa fa-briefcase"></i> Avisos <span class="fa fa-chevron-down"></span></a>
 						<ul class="nav child_menu">
-							<li><a href="" data-toggle="modal" data-target="#avisoC">Crear</a></li>
-							<li><a href="" data-toggle="modal" data-target="#avisoV">Ver</a></li>
+							<li><a href="/avisos/create">Crear</a></li>
+							<li><a href="/avisos">Ver</a></li>
 
 						</ul>
 					</li>

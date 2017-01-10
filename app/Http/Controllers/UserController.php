@@ -7,6 +7,7 @@ use App\{User,UserType};
 use Carbon\Carbon;
 use App\Http\Controllers\Controller;
 use Illuminate\Database\QueryException;
+use Auth;
 
 class UserController extends Controller
 {

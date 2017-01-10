@@ -11,7 +11,10 @@
 
 						 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 						<div class="col-xs-12 col-md-6">
-							{!! Form::file('image', null) !!}
+							<div class="form-group">
+								<label for="">Imagen de Tienda</label>
+								{!! Form::file('image', null) !!}
+							</div>
 							<div class="form-group">
 								<label for="">Seleccione Usuario</label>
 								<?= Form::select('user_id', $users,null,['class' => 'form-control']); ?>
