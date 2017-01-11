@@ -96,5 +96,12 @@
 @endsection
 
 @section('scripts')
+	<script type="text/javascript">
+	$(function(){
+		var userID = getUrlParameter('id');
+
+		$('select[name="user_id"]').val(userID)
+	})
+	</script>
 
 @endsection

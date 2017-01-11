@@ -69,7 +69,7 @@ class UserController extends Controller
             $user->type = $r->type;
             $user->created_at = Carbon::now();
             $user->save();
-            return 'ok';
+            return $user;
 
         } catch (\PDOException $e) {
 
