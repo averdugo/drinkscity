@@ -40,7 +40,7 @@ class AvisoController extends Controller
         $stores = Store::lists('tienda_Nombre','id');
         $category = Category::lists('name','id');
         $type = AvisoType::lists('descripcion','id');
-        return view('admin.avisos.standarCreate',compact(
+        return view('admin.avisos.create',compact(
                             'type',
                             'category',
                             'stores'
@@ -61,7 +61,7 @@ class AvisoController extends Controller
      */
     public function store(Request $request)
     {
-        
+
             $aviso = new Aviso(Request::all());
             $image = Input::file('image');
             $filename  = time() . '.' . $image->getClientOriginalExtension();
@@ -82,7 +82,7 @@ class AvisoController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
@@ -93,7 +93,12 @@ class AvisoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $aviso = Aviso::findOrFail($id);
+        $stores = Store::lists('tienda_Nombre','id');
+        $category = Category::lists('name','id');
+        $type = AvisoType::lists('descripcion','id');
+
+        return view('admin.avisos.edit',compact('aviso','stores', 'category','type'));
     }
 
     /**
@@ -105,7 +110,18 @@ class AvisoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $aviso = Aviso::findOrFail($id);
+        $aviso->fill(Request::all());
+        if (Input::file('image')) {
+            $image=Input::file('image');
+            $filename  = time() . '.' . $image->getClientOriginalExtension();
+            $path = public_path('img/avisos/' . $filename);
+            Image::make($image->getRealPath())->save($path);
+            $aviso->imagen = $filename;
+        }
+        $aviso->save();
+
+        return redirect('avisos');
     }
 
     /**
@@ -116,6 +132,8 @@ class AvisoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $store = Aviso::findOrFail($id);
+        $store->delete();
+
     }
 }

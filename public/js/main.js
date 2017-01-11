@@ -164,6 +164,19 @@ $(function(){
 		    }
 		});
 	})
+	$('.deleteAviso').click(function(e){
+		e.preventDefault();
+		var _token = $('input[name="_token"]').val();
+		var aviso = $(this).parent().data('id');
+		$.ajax({
+		    url: '/avisos/'+aviso,
+		    type: 'DELETE',
+			data: { _token : _token },
+		    success: function(r) {
+					location.reload();
+		    }
+		});
+	})
 
 	$('.deleteStore').click(function(e){
 		e.preventDefault();

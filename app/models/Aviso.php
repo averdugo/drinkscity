@@ -20,4 +20,9 @@ class Aviso extends Model
             'hora_inicio',
             'hora_termino',
     ];
+
+    public function horaFormat()
+    {
+        
+    }
 }
