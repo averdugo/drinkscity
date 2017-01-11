@@ -15,22 +15,22 @@
 
 				<ul class="nav side-menu">
 					<li>
-						<a href="/user"><i class="fa fa-home"></i> Inicio</a>
+						<a href="/clients/{{ $user->id }}"><i class="fa fa-home"></i> Inicio</a>
 					</li>
 
 					<li><a><i class="fa fa-map-pin"></i> Tiendas <span class="fa fa-chevron-down"></span></a>
 						<ul class="nav child_menu">
-							<li><a href="">Mis Tiendas</a></li>
-							<li><a href="" data-toggle="modal" data-target="#storeCreate">Crear Tienda</a></li>
+							<li><a href="/getStoresById/{{ $user->id }}">Mis Tiendas</a></li>
+							<li><a href="/stores/create?id={{ $user->id }}" >Crear Tienda</a></li>
 						</ul>
 					</li>
-					<li><a><i class="fa fa-briefcase"></i> Productos <span class="fa fa-chevron-down"></span></a>
+					<li><a><i class="fa fa-briefcase"></i> Avisos <span class="fa fa-chevron-down"></span></a>
 						<ul class="nav child_menu">
-							<li><a href="">Crear Producto</a></li>
-							<li><a href="">Ver Productos</a></li>
+							<li><a href="/avisos/create?id={{ $user->id }}">Crear Avisos</a></li>
+							<li><a href="/avisos">Ver Avisos</a></li>
 						</ul>
 					</li>
-					<li><a><i class="fa fa-newspaper-o"></i> Registros <span class="fa fa-chevron-down"></span></a>
+					<li class="sr-only"><a><i class="fa fa-newspaper-o"></i> Registros <span class="fa fa-chevron-down"></span></a>
 						<ul class="nav child_menu">
 							<li><a href="">Productos</a></li>
 							<li><a href="">Canjeados</a></li>

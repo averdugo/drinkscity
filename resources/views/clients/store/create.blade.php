@@ -1,19 +1,22 @@
-@extends('admin.layout')
+@extends('clients.layout')
 
 @section('content')
 	<div class="right_col" role="main">
 		<div class="col-md-12 col-sm-12 col-xs-12">
 			<div class="x_panel">
 				<div class="x_content">
-					<h2>Actualizar Tienda</h2>
+					<h2>Crear Tienda</h2>
 
-					{!! Form::model($store,['route'=>['stores.update',$store->id],'method'=>'PUT','files'=>true]) !!}
+					<form class="" action="/stores" method="post" enctype="multipart/form-data">
+
+						 <input type="hidden" name="_token" value="{{ csrf_token() }}">
+						 <input type="hidden" name="user_id" value="{{ $user->id }}">
 						<div class="col-xs-12 col-md-6">
-
 							<div class="form-group">
-								<label for="">Seleccione Usuario</label>
-								<?= Form::select('user_id', $users,null,['class' => 'form-control']); ?>
+								<label for="">Imagen de Tienda</label>
+								{!! Form::file('image', null) !!}
 							</div>
+
 							<div class="form-group">
 								<label for="">Seleccione Tipo de Tienda</label>
 								<?= Form::select('id_tipo_tienda', $tipoTienda, null, ['class' => 'form-control']); ?>
@@ -46,14 +49,6 @@
 
 						</div>
 						<div class="col-xs-12 col-md-6">
-							<img src="/img/stores/{{$store->imagen}}" style="max-width:130px"/>
-							<br>
-							<div class="form-group">
-								<label for="">Imagen Aviso</label>
-
-								{!! Form::file('image', null) !!}
-							</div>
-s
 							<div class="form-group">
 								<label for="">Direccion Tienda</label>
 								<?= Form::text('tienda_direccion',null ,['class' => 'form-control']); ?>
@@ -99,5 +94,12 @@ s
 @endsection
 
 @section('scripts')
+	<script type="text/javascript">
+	$(function(){
+		var userID = getUrlParameter('id');
+
+		$('select[name="user_id"]').val(userID)
+	})
+	</script>
 
 @endsection

@@ -18,7 +18,7 @@
                         <li><a href="" class="adminLogout"><i class="fa fa-sign-out pull-right"></i>Salir</a></li>
                     </ul>
                 </li>
-                <li role="presentation" class="dropdown">
+                <li role="presentation" class="dropdown sr-only">
                     <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
                         <i class="fa fa-envelope-o"></i>
                         <span class="badge bg-green">6</span>

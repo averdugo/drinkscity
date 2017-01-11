@@ -8,7 +8,7 @@ use App\models\{Store, Comuna, Region, Provincia, StoreType};
 use App\User;
 use Illuminate\Support\Facades\Input;
 use Intervention\Image\ImageManagerStatic as Image;
-
+use Auth;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Request;
 class StoreController extends Controller
@@ -24,9 +24,15 @@ class StoreController extends Controller
      */
     public function index()
     {
-        $stores = Store::all();
 
-        return view('admin.store.storeList',compact('stores'));
+        $user = Auth::user();
+        if ($user->type == 1) {
+            $stores = Store::all();
+            return view('admin.store.storeList',compact('stores'));
+        }else{
+            $stores = Store::where('user_id', $user->id)->get();
+            return view('clients.store.list',compact('stores'));
+        }
     }
 
     /**
@@ -39,8 +45,13 @@ class StoreController extends Controller
         $users = User::lists('username','id');
         $tipoTienda = StoreType::lists('Descripcion','id_tipo_tienda');
         $regiones = Region::lists('region_nombre','region_id');
+        $user = Auth::user();
+        if ($user->type == 1) {
+            return view('admin.store.storeCreate',compact('users', 'regiones', 'tipoTienda'));
+        }else{
+            return view('clients.store.create',compact('users', 'regiones', 'tipoTienda','user'));
+        }
 
-        return view('admin.store.storeCreate',compact('users', 'regiones', 'tipoTienda'));
     }
 
     /**
@@ -84,7 +95,7 @@ class StoreController extends Controller
 
     public function getStoresById($user_id){
         $stores = Store::where('user_id', $user_id)->get();
-        return view('admin.store.storeList',compact('stores'));
+        return view('clients.store.list',compact('stores'));
     }
 
     /**
@@ -95,7 +106,7 @@ class StoreController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
@@ -110,7 +121,13 @@ class StoreController extends Controller
         $tipoTienda = StoreType::lists('Descripcion','id_tipo_tienda');
         $regiones = Region::lists('region_nombre','region_id');
         $store = Store::findOrFail($id);
-        return view('admin.store.storeEdit',compact('store','users', 'regiones', 'tipoTienda'));
+        $user = Auth::user();
+        if ($user->type == 1) {
+            return view('admin.store.storeEdit',compact('store','users', 'regiones', 'tipoTienda'));
+        }else{
+            return view('clients.store.edit',compact('store','users', 'regiones', 'tipoTienda'));
+        }
+
     }
 
     /**
@@ -124,6 +141,14 @@ class StoreController extends Controller
     {
         $store = Store::findOrFail($id);
         $store->fill(Request::all());
+        if (Input::file('image')) {
+
+            $image=Input::file('image');
+            $filename  = time() . '.' . $image->getClientOriginalExtension();
+            $path = public_path('img/stores/' . $filename);
+            Image::make($image->getRealPath())->save($path);
+            $store->imagen = $filename;
+        }
         $store->save();
 
 

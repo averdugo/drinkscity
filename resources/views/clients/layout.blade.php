@@ -1,3 +1,9 @@
+<?php
+use Auth as Auth;
+
+$user = Auth::user();
+
+ ?>
 <!DOCTYPE html>
 <html lang="es">
 	<head>
@@ -49,7 +55,7 @@
 		  	  <!-- /footer content -->
 		  	</div>
     	</div>
-
+        <input type="hidden" name="_token" value="{{ csrf_token() }}">
 	    <!-- jQuery -->
 	    <script src="/vendors/jquery/dist/jquery.min.js"></script>
 	    <!-- Bootstrap -->
@@ -94,8 +100,7 @@
 		<script src="/js/jquery.serialize-object.min.js"></script>
 		<script src="/js/main.js"></script>
 
-		@include('clients.partials.storeCreateModal')
-		@include('clients.partials.userCreateModal')
+
 
 		@yield('modals')
 

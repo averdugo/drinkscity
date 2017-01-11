@@ -1,4 +1,4 @@
-@extends('admin.layout')
+@extends('clients.layout')
 
 @section('content')
 	    <link href="/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
@@ -8,10 +8,8 @@
 				<div class="x_content">
 
 					<h2>Crear Aviso Estandar</h2>
+					{!! Form::model($aviso,['route'=>['avisos.update',$aviso->id],'method'=>'PUT','files'=>true]) !!}
 
-					<form class="" action="/avisos" method="post" enctype="multipart/form-data">
-
-						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 						<div class="col-xs-12 col-md-6">
 							<div class="form-group">
 								<label for="">Seleccione Tienda</label>
@@ -47,8 +45,11 @@
 
 						</div>
 						<div class="col-xs-12 col-md-6">
+							<img src="/img/avisos/{{$aviso->imagen}}" style="max-width:130px"/>
+							<br>
 							<div class="form-group">
 								<label for="">Imagen Aviso</label>
+
 								{!! Form::file('image', null) !!}
 							</div>
 
@@ -63,11 +64,11 @@
 
 							<div class="form-group">
 								<label for="">Hora de Inicio</label>
-								<input type="time" name="hora_inicio" class="form-control">
+								<input type="time" value="{{$aviso->hora_inicio}}" name="hora_inicio" class="form-control">
 							</div>
 							<div class="form-group">
 								<label for="">Hora de Termino</label>
-								<input type="time" name="hora_termino" class="form-control">
+								<input type="time" value="{{$aviso->hora_termino}}" name="hora_termino" class="form-control">
 							</div>
 						</div>
 						<div class="clearfix "></div>

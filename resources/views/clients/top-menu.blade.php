@@ -9,16 +9,15 @@
             <ul class="nav navbar-nav navbar-right">
                 <li class="">
                     <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                        <img src="images/img.jpg" alt="">{{ $user->username }}
+                        Bienvenido {{ $user->username }}
                         <span class=" fa fa-angle-down"></span>
                     </a>
                     <ul class="dropdown-menu dropdown-usermenu pull-right">
                         <li><a href="javascript:;"> Perfil</a></li>
-                        <li><a href="javascript:;">Ver Tu Tienda</a></li>
-                        <li><a href=""><i class="fa fa-sign-out pull-right"></i>Salir</a></li>
+                        <li><a href=""class="adminLogout"><i class="fa fa-sign-out pull-right"></i>Salir</a></li>
                     </ul>
                 </li>
-                <li role="presentation" class="dropdown">
+                <li role="presentation" class="dropdown sr-only">
                     <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
                         <i class="fa fa-envelope-o"></i>
                         <span class="badge bg-green">6</span>
@@ -26,7 +25,7 @@
                     <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
                         <li>
                             <a>
-                                <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                            
                                 <span>
                                     <span>DrinksCity</span>
                                     <span class="time">3 mins</span>

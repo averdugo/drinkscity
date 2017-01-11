@@ -10,6 +10,7 @@ class Aviso extends Model
 
     protected $fillable = [
             'id_tipo_aviso',
+            'store_id',
             'titulo',
             'categoria',
             'tipo_categoria',
@@ -23,6 +24,6 @@ class Aviso extends Model
 
     public function horaFormat()
     {
-        
+
     }
 }

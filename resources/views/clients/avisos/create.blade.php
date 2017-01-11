@@ -1,4 +1,4 @@
-@extends('admin.layout')
+@extends('clients.layout')
 
 @section('content')
 	    <link href="/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
@@ -12,6 +12,8 @@
 					<form class="" action="/avisos" method="post" enctype="multipart/form-data">
 
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+
 						<div class="col-xs-12 col-md-6">
 							<div class="form-group">
 								<label for="">Seleccione Tienda</label>

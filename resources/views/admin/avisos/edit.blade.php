@@ -18,6 +18,10 @@
 								<?= Form::select('id_tipo_aviso', $type,null,['class' => 'form-control','placeholder' => 'Aviso']); ?>
 							</div>
 							<div class="form-group">
+								<label for="">Seleccione Tienda</label>
+								<?= Form::select('store_id', $stores,null,['class' => 'form-control','placeholder' => 'Tienda']); ?>
+							</div>
+							<div class="form-group">
 								<label for="">Titulo</label>
 								<?= Form::text('titulo',null ,['class' => 'form-control']); ?>
 							</div>

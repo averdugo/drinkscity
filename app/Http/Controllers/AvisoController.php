@@ -10,6 +10,7 @@ use App\models\{Store, Aviso, Category, CategoryType, AvisoType};
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Input;
 use Intervention\Image\ImageManagerStatic as Image;
+use Auth;
 
 class AvisoController extends Controller
 {
@@ -24,9 +25,19 @@ class AvisoController extends Controller
      */
     public function index()
     {
-        $avisos = Aviso::all();
+        $user = Auth::user();
 
-        return view('admin.avisos.avisoList',compact('avisos'));
+
+        if ($user->type == 1) {
+            $avisos = Aviso::all();
+            return view('admin.avisos.list',compact('avisos'));
+        }else{
+            $store = Store::where('user_id',$user->id)->first();
+            $avisos = Aviso::where('store_id',$store->id)->get();
+            return view('clients.avisos.list',compact('avisos'));
+        }
+
+
     }
 
     /**
@@ -36,15 +47,20 @@ class AvisoController extends Controller
      */
     public function create()
     {
+        $user = Auth::user();
+        if ($user->type == 1) {
+            $stores = Store::lists('tienda_Nombre','id');
+            $category = Category::lists('name','id');
+            $type = AvisoType::lists('descripcion','id');
+            return view('admin.avisos.create',compact('type', 'category', 'stores'));
+        }else{
+            $stores = Store::where('user_id',$user->id)->lists('tienda_Nombre','id');
+            $category = Category::lists('name','id');
+            $type = AvisoType::lists('descripcion','id');
+            return view('clients.avisos.create',compact('type', 'category', 'stores' ));
+        }
 
-        $stores = Store::lists('tienda_Nombre','id');
-        $category = Category::lists('name','id');
-        $type = AvisoType::lists('descripcion','id');
-        return view('admin.avisos.create',compact(
-                            'type',
-                            'category',
-                            'stores'
-                ));
+
     }
 
     public function showT($type)
@@ -70,7 +86,14 @@ class AvisoController extends Controller
             $aviso->imagen = $filename;
             $aviso->save();
 
-            return redirect('avisos');
+            $user = Auth::user();
+            if ($user->type == 1) {
+                return redirect('avisos');
+            }else{
+                $avisos = Aviso::where('store_id',$aviso->store_id)->get();
+                return view('admin.avisos.list',compact('avisos'));
+            }
+
 
     }
 
@@ -93,12 +116,22 @@ class AvisoController extends Controller
      */
     public function edit($id)
     {
+        $user = Auth::user();
         $aviso = Aviso::findOrFail($id);
-        $stores = Store::lists('tienda_Nombre','id');
+
         $category = Category::lists('name','id');
         $type = AvisoType::lists('descripcion','id');
+        if ($user->type == 1) {
+            $stores = Store::lists('tienda_Nombre','id');
+            return view('admin.avisos.edit',compact('aviso','stores', 'category','type','stores'));
+        }else{
+            $stores = Store::where('user_id',$user->id)->lists('tienda_Nombre','id');
+            return view('clients.avisos.edit',compact('aviso','stores', 'category','type','stores'));
+        }
 
-        return view('admin.avisos.edit',compact('aviso','stores', 'category','type'));
+
+
+
     }
 
     /**
