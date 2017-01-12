@@ -1,43 +1,64 @@
-<html>
-    <head>
-        <title>DrinksCity</title>
-		<meta charset="UTF-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="generator" content="Mobirise v3.6.5, mobirise.com">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="shortcut icon" href="assets/images/logo-146x128-23.png" type="image/x-icon">
-		<meta name="description" content="">
+<!DOCTYPE html>
+<html class="" lang="es">
+	<head>
 
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic&amp;subset=latin">
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900">
-		<link rel="stylesheet" href="assets/et-line-font-plugin/style.css">
-		<link rel="stylesheet" href="assets/bootstrap-material-design-font/css/material.css">
-		<link rel="stylesheet" href="assets/tether/tether.min.css">
-		<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-		<link rel="stylesheet" href="assets/socicon/css/socicon.min.css">
-		<link rel="stylesheet" href="assets/animate.css/animate.min.css">
-		<link rel="stylesheet" href="assets/dropdown/css/style.css">
-		<link rel="stylesheet" href="assets/theme/css/style.css">
-		<link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
+	<meta http-equiv="Content-type" content="text/html;charset=UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<title>Drinkscity</title>
+	<!-- CSS -->
+		<link href="/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="/css/swiper.min.css">
+		<link href="/css/web.css" rel="stylesheet">
+	<!-- IE-only CSS -->
+	<!--[if lt IE 9]>
+	<link rel="stylesheet" type="text/css" href="css/nomq_preview_master_a-master2.css?crc=99591004"/>
+	<link rel="stylesheet" type="text/css" href="css/nomq_index.css?crc=450901666" id="nomq_pagesheet"/>
+	<![endif]-->
+	<!-- JS includes -->
+	<!--[if lt IE 9]>
+	<script src="scripts/html5shiv.js?crc=4241844378" type="text/javascript"></script>
+	<![endif]-->
+	<!-- jQuery -->
+	<script src="/vendors/jquery/dist/jquery.min.js"></script>
+	</head>
+	<script type="text/javascript">
+	/* Set the width of the side navigation to 250px */
+	function openNav() {
+		document.getElementById("mySidenav").style.width = "200px";
+		$('#sideMenu').attr('onclick','closeNav()')
+	}
 
-    </head>
-    <body>
-		<section id="index-menu-0">
-			@include('web.nav')
-		</section>
+	/* Set the width of the side navigation to 0 */
+	function closeNav() {
+		document.getElementById("mySidenav").style.width = "0";
+		$('#sideMenu').attr('onclick','openNav()')
+	}
+	</script>
 
+	<body>
+			@include('web.partials.sidenav')
 
-        <div class="pageContent">
-            @yield('content')
-        </div>
+			<div id="main">
 
-		<div class="pageFoo">
-			@include('web.footer')
-		</div>
-        <script src="assets/web/assets/jquery/jquery.min.js"></script>
-        <script src="https://www.atlasestateagents.co.uk/javascript/tether.min.js"></script><!-- Tether for Bootstrap -->
+				<header>
+					@include('web.header')
+    			</header>
+				<div class="" style="margin-top:52px;">
+					@include('web.slide')
+				</div>
+				<div class="" >
+					<!-- page content -->
+					@yield('content')
+				</div>
+				<div style="height:103px"></div>
+				<!-- /page content -->
+				@include('web.nav')
+			</div>
 
-        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    </body>
+		<!-- Bootstrap -->
+		<script src="/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+
+		@yield('scripts')
+
+	</body>
 </html>
