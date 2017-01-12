@@ -1,6 +1,10 @@
 <nav class="headerNav">
-    <div class="flexNav" >
+    <div class="flexNav" style=" padding: 0 20px;">
+
 		<div class="">
+            <button type="button" class="btn btn-default sr-only" onclick="history.go(-1);" name="button" id="sideBack">
+				<i class="glyphicon glyphicon-menu-left" style="font-size:25px;color:white;margin-top:5px"></i>
+			</button>
 			<button type="button" class="btn btn-default" onclick="openNav()" name="button" id="sideMenu">
 				<i class="glyphicon glyphicon-menu-hamburger" style="font-size:25px;color:white;margin-top:5px"></i>
 			</button>

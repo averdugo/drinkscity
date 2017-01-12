@@ -1,4 +1,4 @@
-<div id="mySidenav" class="sidenav" style="padding-top:70px">
+<div id="mySidenav" class="sidenav" style="padding-top:70px;border-right:1px solid white">
 	<div class="flexFilter">
 		<div class="" style="width: 25px;"></div>
 		<div class="text-center">
@@ -17,7 +17,7 @@
 	<a href="#" class="KL sideNavItem">Favoritos</a>
 	<a href="#" class="KL sideNavItem">Contactanos</a>
 	<a href="#" class="KL sideNavItem">Bases Legales</a>
-	<div class="text-center" style="margin-top:10px">
+	<div class="text-center" style="margin-top:20px">
 		<img src="/img/drinkscity.png" alt="" width="90px"/><br><br>
 		<p class="KL" style="font-size:14px">www.drinkscity.cl</p>
 		<p class="KL" style="font-size:14px">Todos los derechos reservados</p>

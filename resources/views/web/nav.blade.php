@@ -2,7 +2,7 @@
 	<img src="/img/linea.png" alt="" style="width:100%;margin-top: -18px;height:1px" />
     <div class="flexNavbottom" >
 		<div class="">
-			<a href="#" >
+			<a href="/" >
 				<img src="/img/inicio.png" alt="" class="imgBottomNav" />
 				<p class="textBottomNav">
 					INICIO
@@ -10,7 +10,7 @@
 			</a>
 		</div>
 		<div class="">
-			<a href="#" >
+			<a href="/tiendas" >
 				<img src="/img/tiendas.png" alt="" class="imgBottomNav" />
 				<p class="textBottomNav">
 					TIENDAS
@@ -18,7 +18,7 @@
 			</a>
 		</div>
 		<div class="">
-			<a href="#" >
+			<a href="/carro" >
 				<img src="/img/compras.png" alt="" class="imgBottomNav" />
 				<p class="textBottomNav">
 					CARRO
@@ -26,7 +26,7 @@
 			</a>
 		</div>
 		<div class="">
-			<a href="#" >
+			<a href="/eventos" >
 				<img src="/img/eventos.png" alt=""  class="imgBottomNav"/>
 				<p class="textBottomNav">
 					EVENTOS
@@ -34,7 +34,7 @@
 			</a>
 		</div>
 		<div class="">
-			<a href="#" >
+			<a href="/promociones" >
 				<img src="/img/promociones.png" alt="" class="imgBottomNav" />
 				<p class="textBottomNav">
 					PROMOS

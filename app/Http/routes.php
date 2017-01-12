@@ -49,5 +49,8 @@ Route::get('getComunas/{id}', 'DrinkscityHelperController@getComunas');
 Route::get('getCategoryType/{id}', 'DrinkscityHelperController@getCategoryType');
 
 
+Route::get('tiendas', 'WebController@stores');
+
+
 Route::post('/adminlogin', 'LoginController@adminlogin');
 Route::get('/adminlogout', 'LoginController@adminlogout');

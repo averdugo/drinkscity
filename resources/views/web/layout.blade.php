@@ -40,12 +40,10 @@
 
 			<div id="main">
 
-				<header>
+				<header id="navHeader">
 					@include('web.header')
     			</header>
-				<div class="" style="margin-top:52px;">
-					@include('web.slide')
-				</div>
+
 				<div class="" >
 					<!-- page content -->
 					@yield('content')

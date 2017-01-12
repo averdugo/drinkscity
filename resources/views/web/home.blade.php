@@ -1,9 +1,13 @@
 @extends('web.layout')
 
 @section('content')
-	@include('web.partials.ofertas_momentos')
-	@include('web.partials.destacados')
-	@include('web.partials.mas_cercanos')
+	<section>
+		@include('web.slide')
+		@include('web.partials.ofertas_momentos')
+		@include('web.partials.destacados')
+		@include('web.partials.mas_cercanos')
+	</section>
+
 @endsection
 
 @section('scripts')
