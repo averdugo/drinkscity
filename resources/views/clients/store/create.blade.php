@@ -11,6 +11,7 @@
 
 						 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 						 <input type="hidden" name="user_id" value="{{ $user->id }}">
+						 <input type="hidden" name="status" value="1">
 						<div class="col-xs-12 col-md-6">
 							<div class="form-group">
 								<label for="">Imagen de Tienda</label>

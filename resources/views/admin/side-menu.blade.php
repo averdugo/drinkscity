@@ -20,12 +20,13 @@
 					<li><a><i class="fa fa-users"></i> Usuarios<span class="fa fa-chevron-down"></span></a>
 						<ul class="nav child_menu">
 							<li><a href="" data-toggle="modal" data-target="#userCreate">Crear</a></li>
-							<li><a href="/user">Ver</a></li>
+							<li><a href="/user">Ver Clientes</a></li>
+							<li><a href="/user">Ver Usuarios</a></li>
 						</ul>
 					</li>
 					<li><a><i class="fa fa-map-pin"></i> Tiendas <span class="fa fa-chevron-down"></span></a>
 						<ul class="nav child_menu">
-							<li><a href="">Tiendas Pendientes</a></li>
+							<li><a href="/storePend">Tiendas Pendientes</a></li>
 							<li><a href="/stores/create" class="">Crear</a></li>
 							<li><a href="/stores">Ver</a></li>
 						</ul>

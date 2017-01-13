@@ -14,12 +14,8 @@ use App\User;
 |
 */
 
-Route::get('/', function () {
 
-    return view('web.home');
-});
-
-Route::get('/login', function () {
+Route::get('/dc-admin', function () {
 
     return view('login');
 });
@@ -30,16 +26,13 @@ Route::controllers([
 	'password' => 'Auth\PasswordController',
 ]);
 
-
-
-
+//administracion
 Route::resource('admins', 'AdminController');
 Route::resource('avisos', 'AvisoController');
 Route::resource('product', 'ProductController');
 Route::resource('user', 'UserController');
 Route::resource('stores', 'StoreController');
 Route::resource('notification', 'NotificationController');
-
 Route::get('clients/{id}', 'AdminController@clients');
 Route::get('getUsers', 'UserController@getUsers');
 Route::get('getStores', 'StoreController@getStores');
@@ -47,10 +40,24 @@ Route::get('getStoresById/{id}', 'StoreController@getStoresById');
 Route::get('getProvincias/{id}', 'DrinkscityHelperController@getProvincias');
 Route::get('getComunas/{id}', 'DrinkscityHelperController@getComunas');
 Route::get('getCategoryType/{id}', 'DrinkscityHelperController@getCategoryType');
+Route::get('storePend', 'StoreController@storePend');
 
-
+//web
+Route::get('/', 'WebController@index');
 Route::get('tiendas', 'WebController@stores');
+Route::get('mis_compras', 'WebController@shoppingCar');
+Route::get('eventos', 'WebController@events');
+Route::get('promociones', 'WebController@promos');
+Route::get('storeCreate', 'WebController@storeCreate');
+Route::post('storess', 'WebController@storess');
+//logins
+Route::post('adminlogin', 'LoginController@adminlogin');
+Route::get('adminlogout', 'LoginController@adminlogout');
+Route::get('login', 'LoginController@facebook');
+Route::get('logout', 'LoginController@logout');
+Route::post('userss', 'LoginController@loginN');
 
 
-Route::post('/adminlogin', 'LoginController@adminlogin');
-Route::get('/adminlogout', 'LoginController@adminlogout');
+Route::get('auth', function(){
+   return OAuth::authorize('facebook');
+});

@@ -26,13 +26,20 @@ class StoreController extends Controller
     {
 
         $user = Auth::user();
+        $title = "Lista de Tiendas";
         if ($user->type == 1) {
-            $stores = Store::all();
-            return view('admin.store.storeList',compact('stores'));
+            $stores = Store::where('status',1)->get();
+            return view('admin.store.storeList',compact('stores','title'));
         }else{
             $stores = Store::where('user_id', $user->id)->get();
-            return view('clients.store.list',compact('stores'));
+            return view('clients.store.list',compact('stores','title'));
         }
+    }
+    public function storePend()
+    {
+        $title = "Lista de Tiendas Pendientes";
+        $stores = Store::where('status',1345)->get();
+        return view('admin.store.storeList',compact('stores','title'));
     }
 
     /**
@@ -66,11 +73,14 @@ class StoreController extends Controller
         try {
 
             $store = new Store(Request::all());
-            $image = Input::file('image');
-            $filename  = time() . '.' . $image->getClientOriginalExtension();
-            $path = public_path('img/stores/' . $filename);
-            Image::make($image->getRealPath())->save($path);
-            $store->imagen = $filename;
+            if ($image = Input::file('image')) {
+                $filename  = time() . '.' . $image->getClientOriginalExtension();
+                $path = public_path('img/stores/' . $filename);
+                Image::make($image->getRealPath())->save($path);
+                $store->imagen = $filename;
+            }
+
+
             $store->save();
 
             return redirect('stores');

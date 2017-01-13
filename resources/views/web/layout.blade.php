@@ -36,13 +36,14 @@
 	</script>
 
 	<body>
-			@include('web.partials.sidenav')
+			@include('web.sidenav')
 
 			<div id="main">
 
 				<header id="navHeader">
 					@include('web.header')
     			</header>
+
 
 				<div class="" >
 					<!-- page content -->
@@ -55,7 +56,8 @@
 
 		<!-- Bootstrap -->
 		<script src="/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-
+		@include('web.partials.userCreateModal')
+		
 		@yield('scripts')
 
 	</body>

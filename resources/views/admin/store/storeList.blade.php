@@ -6,7 +6,7 @@
 			<div class="x_panel">
 				<div class="x_content">
 
-					<p>Lista de Tiendas</p>
+					<p>{{$title}}</p>
 
 					<div class="table-responsive">
 						<table class="table table-striped jambo_table bulk_action">
@@ -30,12 +30,19 @@
 										<td class=" ">{{ $store->tienda_direccion }}</td>
 										<td class=" ">{{ $store->id_tipo_tienda }}</td>
 
-
-										<td data-id="{{ $store->id }}">
-											<button type="button" title="Ver Producto" class="btn btn-default"><i class="fa fa-building"></i></button>
-											<button type="button" title="Editar Tienda" class="btn btn-default editStore"><i class="fa fa-pencil"></i></button>
-											<button type="button" title="Eliminar Producto" class="btn btn-default deleteStore"><i class="fa fa-minus"></i></button>
-										</td>
+										@if ($store->status == 1)
+											<td data-id="{{ $store->id }}">
+												<button type="button" title="Ver Tienda" class="btn btn-default"><i class="fa fa-eye"></i></button>
+												<button type="button" title="Editar Tienda" class="btn btn-default editStore"><i class="fa fa-pencil"></i></button>
+												<button type="button" title="Eliminar Producto" class="btn btn-default deleteStore"><i class="fa fa-minus"></i></button>
+											</td>
+										@else
+											<td data-id="{{ $store->id }}">
+												<button type="button" title="Ver Tienda" class="btn btn-default"><i class="fa fa-eye"></i></button>
+												<button type="button" title="Editar Tienda" class="btn btn-default acceptStore"><i class="fa fa-check"></i></button>
+												<button type="button" title="Eliminar Producto" class="btn btn-default deleteStore"><i class="fa fa-minus"></i></button>
+											</td>
+										@endif
 									</tr>
 								@endforeach
 							</tbody>

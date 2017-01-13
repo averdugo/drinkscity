@@ -18,7 +18,7 @@
 			</a>
 		</div>
 		<div class="">
-			<a href="/carro" >
+			<a href="/mis_compras" >
 				<img src="/img/compras.png" alt="" class="imgBottomNav" />
 				<p class="textBottomNav">
 					CARRO

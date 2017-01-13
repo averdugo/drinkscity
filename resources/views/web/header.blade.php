@@ -20,8 +20,11 @@
 			</form>
 		</div>
 		<div class="">
-			<button type="button" class="btn btn-default" onclick="openNav()" name="button">
+			<button type="button" class="btn btn-default" id="mapButton"  name="button">
 				<img src="/img/mapa_blanco.png" alt="" style="width:35px"/>
+			</button>
+            <button type="button" class="btn btn-default sr-only" id="saveButton"  name="button">
+				<i class="glyphicon glyphicon-floppy-saved" style="font-size:25px;color:white;margin-top:5px"></i>
 			</button>
 		</div>
     </div><!-- /.navbar-collapse -->

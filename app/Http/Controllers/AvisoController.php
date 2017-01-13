@@ -79,11 +79,14 @@ class AvisoController extends Controller
     {
 
             $aviso = new Aviso(Request::all());
-            $image = Input::file('image');
-            $filename  = time() . '.' . $image->getClientOriginalExtension();
-            $path = public_path('img/avisos/' . $filename);
-            Image::make($image->getRealPath())->save($path);
-            $aviso->imagen = $filename;
+            if (Input::file('image')) {
+                $image = Input::file('image');
+                $filename  = time() . '.' . $image->getClientOriginalExtension();
+                $path = public_path('img/avisos/' . $filename);
+                Image::make($image->getRealPath())->save($path);
+                $aviso->imagen = $filename;
+            }
+
             $aviso->save();
 
             $user = Auth::user();
@@ -91,7 +94,7 @@ class AvisoController extends Controller
                 return redirect('avisos');
             }else{
                 $avisos = Aviso::where('store_id',$aviso->store_id)->get();
-                return view('admin.avisos.list',compact('avisos'));
+                return view('clients.avisos.list',compact('avisos'));
             }
 
 
