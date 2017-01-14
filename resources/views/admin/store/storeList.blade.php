@@ -32,7 +32,7 @@
 
 										@if ($store->status == 1)
 											<td data-id="{{ $store->id }}">
-												<button type="button" title="Ver Tienda" class="btn btn-default"><i class="fa fa-eye"></i></button>
+												<button type="button" title="Ver Producto" class="btn btn-default"><i class="fa fa-building"></i></button>
 												<button type="button" title="Editar Tienda" class="btn btn-default editStore"><i class="fa fa-pencil"></i></button>
 												<button type="button" title="Eliminar Producto" class="btn btn-default deleteStore"><i class="fa fa-minus"></i></button>
 											</td>
