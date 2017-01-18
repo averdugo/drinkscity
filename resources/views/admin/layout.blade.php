@@ -6,7 +6,7 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-
+		
 		<title>Drinkscity Admin</title>
 
 		<!-- Bootstrap -->
@@ -105,5 +105,7 @@
 		@yield('modals')
 
 		@yield('scripts')
+
+		<script src="http://maps.google.cn/maps/api/js?key=AIzaSyCXaC0E0vrBC-XX0PNlEl8V8NlHeKFm-o4&libraries=places"type="text/javascript"></script>
 	</body>
 </html>

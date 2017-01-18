@@ -1,6 +1,11 @@
 @extends('admin.layout')
 
 @section('content')
+	<style media="screen">
+		#map{
+			height: 400px;
+		}
+	</style>
 	<div class="right_col" role="main">
 		<div class="col-md-12 col-sm-12 col-xs-12">
 			<div class="x_panel">
@@ -54,7 +59,8 @@
 						<div class="col-xs-12 col-md-6">
 							<div class="form-group">
 								<label for="">Direccion Tienda</label>
-								<?= Form::text('tienda_direccion',null ,['class' => 'form-control']); ?>
+								<div id="map"></div>
+								<input type="hidden" name="name" value="">
 							</div>
 							<div class="form-group">
 								<label for="">Seleccione Region</label>
@@ -97,6 +103,8 @@
 @endsection
 
 @section('scripts')
+	<script src="/js/src/user_location.js" ></script>
+	<script src="/js/src/main.js" ></script>
 	<script type="text/javascript">
 	$(function(){
 		var userID = getUrlParameter('id');
@@ -104,5 +112,6 @@
 		$('select[name="user_id"]').val(userID)
 	})
 	</script>
+
 
 @endsection
