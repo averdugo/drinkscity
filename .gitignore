@@ -4,3 +4,6 @@ Homestead.yaml
 Homestead.json
 .env
 access
+godaddy.html
+public/.well-known/
+public/godaddy.html
