@@ -88,7 +88,7 @@
 	    <script src="/vendors/moment/min/moment.min.js"></script>
 	    <script src="/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
 		<script src="/js/sweetalert.min.js"></script>
-		<script src="https://maps.google.com/maps/api/js?key=AIzaSyCXaC0E0vrBC-XX0PNlEl8V8NlHeKFm-o4&libraries=places"type="text/javascript"></script>
+	<script src="https://maps.google.com/maps/api/js?key=AIzaSyCXaC0E0vrBC-XX0PNlEl8V8NlHeKFm-o4&libraries=places" type="text/javascript"></script>
 	    <!-- Custom Theme Scripts -->
 	    <script src="/js/custom.min.js"></script>
 		<script src="/js/jquery.serialize-object.min.js"></script>
@@ -105,6 +105,5 @@
 
 		@yield('scripts')
 
-		
 	</body>
 </html>
