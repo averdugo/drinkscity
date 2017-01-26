@@ -59,6 +59,7 @@
 						<div class="col-xs-12 col-md-6">
 							<div class="form-group">
 								<label for="">Direccion Tienda</label>
+								<input id="searchInput" type="text" name="" class="form-control" placeholder="Direccion de la Tienda">
 								<div id="map"></div>
 								<input type="hidden" name="name" value="">
 							</div>

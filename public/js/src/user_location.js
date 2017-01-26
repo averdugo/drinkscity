@@ -11,7 +11,7 @@ var UserLocation = function UserLocation(callback) {
 
 		navigator.geolocation.getCurrentPosition(function (localizacion) {
 			_this.latitud = localizacion.coords.latitude;
-			_this.longitude = localizacion.coords.longitude;
+			_this.longitud = localizacion.coords.longitude;
 			callback();
 		});
 	} else {

@@ -6,12 +6,37 @@ google.maps.event.addDomListener(window, 'load', function () {
 		var mapOptions = {
 			zoom: 15,
 			center: {
-				lat: -33.382048399999995,
-				lng: -70.5562293
+				lat: user_location.latitud,
+				lng: user_location.longitud
 			}
 		};
 		var mapa_element = document.getElementById('map');
 		var map = new google.maps.Map(mapa_element, mapOptions);
-	});
 
+		var searchInput = document.getElementById('searchInput');
+		var autocomplete = new google.maps.places.Autocomplete(searchInput);
+
+		var marker = new google.maps.Marker({
+			map: map
+		});
+
+		autocomplete.bindTo('bounds', map);
+		google.maps.event.addListener(autocomplete, "place_changed", function () {
+			var place = autocomplete.getPlace();
+			console.log(place.geometry.location);
+
+			if (place.geometry.viewport) {
+				map.fitBounds(place.geometry.viewport);
+			} else {
+				map.setCenter(place.geometry.location);
+				map.setZoom(15);
+			}
+			marker.setPlace({
+				placeId: place.place_id,
+				location: place.geometry.location
+			});
+
+			marker.setVisible(true);
+		});
+	});
 });

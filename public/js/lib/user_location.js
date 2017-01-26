@@ -4,7 +4,7 @@ class UserLocation{
 
 			navigator.geolocation.getCurrentPosition((localizacion)=>{
 				this.latitud = localizacion.coords.latitude;
-				this.longitude = localizacion.coords.longitude;
+				this.longitud = localizacion.coords.longitude;
 				callback()
 			})
 		}else{
