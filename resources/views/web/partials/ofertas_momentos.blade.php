@@ -11,8 +11,8 @@
 					<span>18:00</span>
 				</div>
 
-				<div class="" style="position:relative">
-					<img src="/img/rectangle.png" alt=""  style="width: 255px;"/>
+				<div class="" style="position:relative;width: 255px">
+					
 					<img src="/img/avisos/rec1.jpg" alt="" class="avisoImg" />
 				</div>
 				<div class="">

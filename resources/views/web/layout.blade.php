@@ -57,6 +57,7 @@
 
 		<!-- Bootstrap -->
 		<script src="/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="https://maps.google.com/maps/api/js?key=AIzaSyCXaC0E0vrBC-XX0PNlEl8V8NlHeKFm-o4&libraries=places" type="text/javascript"></script>
 		@include('web.partials.userCreateModal')
 		
 		@yield('scripts')

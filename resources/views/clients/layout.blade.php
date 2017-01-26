@@ -99,7 +99,7 @@ $user = Auth::user();
 	    <script src="/js/custom.min.js"></script>
 		<script src="/js/jquery.serialize-object.min.js"></script>
 		<script src="/js/main.js"></script>
-
+		<script src="https://maps.google.com/maps/api/js?key=AIzaSyCXaC0E0vrBC-XX0PNlEl8V8NlHeKFm-o4&libraries=places" type="text/javascript"></script>
 
 
 		@yield('modals')
