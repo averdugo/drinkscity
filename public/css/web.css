@@ -97,7 +97,14 @@ margin: 0 auto;
 	z-index: 99;
 }
 .formDivHeader{
-	width: 400px;
+	max-width: 400px;
+    width: 100%;
+}
+.navCenter{
+        max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
 }
 .headerNav{
 	background-image:url('/img/banda.png');
@@ -121,6 +128,9 @@ margin: 0 auto;
 	width: 50px;
 	height: 50px;
 	margin: 0px 60px;
+}
+.navP{
+    padding: 0 20px;
 }
 .flexNav{
 	display: -webkit-box;
@@ -199,7 +209,7 @@ body,
 }
 
 #carousel img{
-	height: 470px;
+	height: auto;
 	width: 100%;
 }
 
@@ -214,6 +224,7 @@ body,
         font-size: 18px;
 		margin-left: 60px;
         width: 21%;
+        min-width: 250px;
 
     }
 
@@ -221,8 +232,9 @@ body,
 	position: absolute;
 	top: 1px;
 	left: 1px;
-	width: 253px;
-	height: 140px;
+    width: 100%;
+	height: auto;
+    border:1px solid #00c5da;
 }
 .KR{
     font-family: 'kelsonregular';
@@ -246,9 +258,14 @@ body,
 	    font-size: 16px;
 }
 .bannerImg{
-    width:594px;
-    height: 148px;
+    width:100%;
+    
 
+}
+.bannerBox{
+    max-width: 600px;
+    margin: 0 auto;
+    width: 100%;
 }
 
 .sideNavItem{
@@ -267,8 +284,34 @@ body,
 
 .anuncioImgbox{
     position:relative;
-    height: 180px;
+    height: 170px;
+
 }   
 .anuncioBox{
-    width: 255px
+    
+}
+
+@media(max-width: 425px){
+    .navP{
+        padding: 0 0px;
+    }
+    .filterBand{
+        height: 62px;
+    }
+    .imgFilterBand {
+        width: 40px;
+        height: 40px;
+    }
+    .imgBottomNav {
+        width: 32px;
+        height: 30px;
+        margin: 0px 20px;
+    }
+    .bottomNav{
+        height: 83px;
+    }
+    .textBottomNav{
+        font-size: 10px;
+        padding-top: 5px;
+    }
 }

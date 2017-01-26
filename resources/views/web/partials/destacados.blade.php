@@ -25,7 +25,7 @@
 	<div class="swiper-pagination"></div>
 
 </div>
-<div class="text-center">
+<div class="text-center bannerBox">
 	<img src="/img/slide2.jpg" class="bannerImg" alt="" /><br>
 	<span class="tituloHomeShow">Vodka Absolut 1lt</span><br>
 	<span class="tiendaHomeShow">Drinkscity.cl</span><br>
