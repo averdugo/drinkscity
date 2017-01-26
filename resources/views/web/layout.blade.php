@@ -21,6 +21,9 @@
 	<![endif]-->
 	<!-- jQuery -->
 	<script src="/vendors/jquery/dist/jquery.min.js"></script>
+	<script src="https://maps.google.com/maps/api/js?key=AIzaSyCXaC0E0vrBC-XX0PNlEl8V8NlHeKFm-o4&libraries=places" type="text/javascript"></script>
+		<script src="/js/src/user_location.js"></script>
+		<script src="/js/src/web_main.js"></script>
 	</head>
 	<script type="text/javascript">
 	/* Set the width of the side navigation to 250px */
@@ -57,7 +60,7 @@
 
 		<!-- Bootstrap -->
 		<script src="/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-		<script src="https://maps.google.com/maps/api/js?key=AIzaSyCXaC0E0vrBC-XX0PNlEl8V8NlHeKFm-o4&libraries=places" type="text/javascript"></script>
+
 		@include('web.partials.userCreateModal')
 		
 		@yield('scripts')

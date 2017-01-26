@@ -5,9 +5,9 @@
 	<div class="swiper-wrapper">
 		@for ($i = 0; $i < 10; $i++)
 
-			<div class="swiper-slide">
+			<div class="swiper-slide" style="width: 255px">
 
-				<div class="" style="position:relative;width: 255px">
+				<div class="" style="position:relative;height: 180px;">
 					
 					<img src="/img/avisos/rec1.jpg" alt="" class="avisoImg" />
 				</div>

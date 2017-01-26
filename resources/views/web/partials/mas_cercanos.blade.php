@@ -5,7 +5,7 @@
 
 		@for ($i = 0; $i < 10; $i++)
 			<div class="col-xs-12 col-md-3" style="margin-bottom:20px;width: 255px">
-				<div class="" style="position:relative">
+				<div class="" style="position:relative;height: 180px;">
 					
 					<img src="/img/avisos/rec1.jpg" alt="" class="avisoImg" />
 				</div>
