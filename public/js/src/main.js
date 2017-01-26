@@ -23,13 +23,16 @@ google.maps.event.addDomListener(window, 'load', function () {
 		autocomplete.bindTo('bounds', map);
 		google.maps.event.addListener(autocomplete, "place_changed", function () {
 			var place = autocomplete.getPlace();
-			console.log(place.geometry.location);
+
+			document.getElementById("latInput").value = place.geometry.location.lat();
+			document.getElementById("lonInput").value = place.geometry.location.lng();
+			
 
 			if (place.geometry.viewport) {
 				map.fitBounds(place.geometry.viewport);
 			} else {
 				map.setCenter(place.geometry.location);
-				map.setZoom(15);
+				map.setZoom(13);
 			}
 			marker.setPlace({
 				placeId: place.place_id,

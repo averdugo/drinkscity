@@ -45,6 +45,18 @@
 								<label for="">Correo Tienda</label>
 								<?= Form::text('tienda_correo',null ,['class' => 'form-control']); ?>
 							</div>
+							<div class="form-group">
+								<label for="">Seleccione Region</label>
+								<?= Form::select('region_id', $regiones, null, ['class' => 'form-control', 'id'=>'selectRegion']); ?>
+							</div>
+							<div id="selectProvinciaDiv" class="form-group sr-only">
+								<label for="">Seleccione Provincia</label>
+								<?= Form::select('provincias', [], null, ['class' => 'form-control', 'id'=>'selectProvincia']); ?>
+							</div>
+							<div id="selectComunaDiv" class="form-group sr-only">
+								<label for="">Seleccione Comuna</label>
+								<?= Form::select('comuna_id', [], null, ['class' => 'form-control', 'id'=>'selectComuna']); ?>
+							</div>
 							<h4>Horarios</h4>
 							<div class="form-group">
 								<label for="">Dias</label>
@@ -61,20 +73,10 @@
 								<label for="">Direccion Tienda</label>
 								<input id="searchInput" type="text" name="" class="form-control" placeholder="Direccion de la Tienda">
 								<div id="map"></div>
-								<input type="hidden" name="name" value="">
+								<input id="latInput" type="hidden" name="latitude" value="">
+								<input id="lonInput" type="hidden" name="longitude" value="">
 							</div>
-							<div class="form-group">
-								<label for="">Seleccione Region</label>
-								<?= Form::select('region_id', $regiones, null, ['class' => 'form-control', 'id'=>'selectRegion']); ?>
-							</div>
-							<div id="selectProvinciaDiv" class="form-group sr-only">
-								<label for="">Seleccione Provincia</label>
-								<?= Form::select('provincias', [], null, ['class' => 'form-control', 'id'=>'selectProvincia']); ?>
-							</div>
-							<div id="selectComunaDiv" class="form-group sr-only">
-								<label for="">Seleccione Comuna</label>
-								<?= Form::select('comuna_id', [], null, ['class' => 'form-control', 'id'=>'selectComuna']); ?>
-							</div>
+							
 							<div class="form-group">
 								<label for="">Nombre Representante</label>
 								<?= Form::text('Repres_nombre',null ,['class' => 'form-control']); ?>

@@ -21,6 +21,8 @@ class Store extends Model
             'tienda_direccion',
             'region_id',
             'comuna_id',
+            'latitude',
+            'longitude',
             'Repres_nombre',
             'Repres_rut',
             'Repres_Fono',

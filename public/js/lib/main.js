@@ -27,7 +27,7 @@ google.maps.event.addDomListener(window, 'load', ()=>{
 				map.fitBounds(place.geometry.viewport);
 			}else{
 				map.setCenter(place.geometry.location);
-				map.setZoom(15)
+				map.setZoom(13)
 			}
 			marker.setPlace({
 				placeId: place.place_id,
