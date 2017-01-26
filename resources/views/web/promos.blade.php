@@ -1,7 +1,7 @@
 @extends('web.layout')
 
 @section('content')
-	<section id="storesView" class="text-center" style="width:100%;">
+	<section id="storesView" class="text-center" style="width:100%;padding: 0 10px">
 
 		<header class="text-center" style="margin-top:80px">
 			<h2 class="KR">PROMOCIONES</h2>
@@ -32,7 +32,7 @@
 					</div>
 				</div>
 			</article>
-			<img src="/img/linea.png" alt="" height="2" />
+			<img src="/img/linea.png" alt="" height="2" style="width: 100%;" />
 		@endfor
 
 	</section>

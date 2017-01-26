@@ -1,7 +1,7 @@
 @extends('web.layout')
 
 @section('content')
-	<section id="storesView" class="text-center" style="width:100%;">
+	<section id="storesView" class="text-center" style="width:100%;padding: 0 10px">
 
 		<header class="text-center" style="margin-top:80px">
 			<h2 class="KR">EVENTOS</h2>
@@ -28,11 +28,11 @@
 					</div>
 					<div class="media-body text-right" style="position:relative;    padding-top: 2px;width:60px">
 						<img src="/img/fecha.png" alt="" width="40" /><br><br><br>
-						<img src="/img/mapa_blanco.png" alt=""width="40" />
+						<img src="/img/mapa_blanco.png" alt="" width="40" />
 					</div>
 				</div>
 			</article>
-			<img src="/img/linea.png" alt="" height="2" />
+			<img src="/img/linea.png" alt="" height="2" style="width: 100%;" />
 		@endfor
 
 	</section>
