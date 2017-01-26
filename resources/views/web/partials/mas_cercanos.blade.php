@@ -4,9 +4,8 @@
 <div class="">
 
 		@for ($i = 0; $i < 10; $i++)
-			<div class="col-xs-12 col-md-3" style="margin-bottom:20px;width: 255px">
-				<div class="" style="position:relative;height: 180px;">
-					
+			<div class="col-xs-12 col-md-3 anuncioBox" style="margin-bottom:20px;">
+				<div class="anuncioImgbox">
 					<img src="/img/avisos/rec1.jpg" alt="" class="avisoImg" />
 				</div>
 				<div class="text-center">

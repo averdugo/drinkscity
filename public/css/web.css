@@ -264,3 +264,11 @@ body,
 .sideNavItem:hover{
     background-color: rgba(92,92,92,0.75);
 }
+
+.anuncioImgbox{
+    position:relative;
+    height: 180px;
+}   
+.anuncioBox{
+    width: 255px
+}
