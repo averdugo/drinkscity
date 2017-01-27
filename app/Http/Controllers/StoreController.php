@@ -9,6 +9,7 @@ use App\User;
 use Illuminate\Support\Facades\Input;
 use Intervention\Image\ImageManagerStatic as Image;
 use Auth;
+use Mail;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Request;
 class StoreController extends Controller
@@ -24,6 +25,7 @@ class StoreController extends Controller
      */
     public function index()
     {
+        
 
         $user = Auth::user();
         $title = "Lista de Tiendas";

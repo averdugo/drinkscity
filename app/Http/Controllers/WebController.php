@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\models\{Store, Comuna, Region, Provincia, StoreType, CategoryType};
 use Auth;
+use Mail;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Request;
 class WebController extends Controller
@@ -53,13 +54,19 @@ class WebController extends Controller
             Image::make($image->getRealPath())->save($path);
             $store->imagen = $filename;
         }
-        
+
         if ($store->save()) {
+            $data= "Se ah Creado una nueva Tienda que espera tu aprobacion ".$store->tienda_Nombre '\n revisalo en https://drinkscity.cl/storePend';
+            Mail::raw( $data, function ($message) {
+                $message->from('admin@drinkscity', 'Drinkscity');
+
+                $message->to('matias.vasquez.05@gmail.com');
+            });
             return 1;
         }else{
             return 2;
         }
-        
+
 
     }
 
