@@ -51,18 +51,18 @@
 					<label for="">Hora</label>
 					<?= Form::text('hasta',null ,['class' => 'form-control','placeholder'=>'08:00-12:00']); ?>
 				</div>
-				
+
 
 			</div>
 			<div class="col-xs-12 col-md-6">
 				<div class="form-group">
 					<label for="">Direccion Tienda</label>
-					<input id="searchInput" type="text" name="" class="form-control" placeholder="Direccion de la Tienda">
+					<input id="searchInput" type="text" name="tienda_direccion" class="form-control" placeholder="Direccion de la Tienda">
 					<div id="map"></div>
 					<input id="latInput" type="hidden" name="latitude" value="">
 					<input id="lonInput" type="hidden" name="longitude" value="">
 				</div>
-	
+
 				<div class="form-group">
 					<label for="">Nombre Representante</label>
 					<?= Form::text('Repres_nombre',null ,['class' => 'form-control']); ?>
@@ -82,7 +82,7 @@
 
 			</div>
 			<div class="clearfix "></div>
-			
+
 
 		{!! Form::close() !!}
 
@@ -105,7 +105,7 @@
 			$('body').on('click','#saveButton', function(){
 				var data = $('#formStoreCreate').serializeObject();
 				var url = "/storesss"
-				
+
 
 				$.post(url,data,function(r){
 					console.log(r);

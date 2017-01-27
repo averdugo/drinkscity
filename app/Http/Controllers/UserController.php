@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\{User,UserType};
+use App\models\{Store};
 use Carbon\Carbon;
 use App\Http\Controllers\Controller;
 use Illuminate\Database\QueryException;
@@ -41,6 +42,21 @@ class UserController extends Controller
         }
 
         return $data;
+    }
+
+    public function userFromStore(Request $r)
+    {
+        $user = new User();
+        $user->username = $r->username;
+        $user->email = $r->email;
+        $user->password = bcrypt($r->password);
+        $user->type = $r->type;
+        $user->created_at = Carbon::now();
+        $user->save();
+
+        $store = Store::findOrFail($r->store_id);
+        $store->user_id = $user->id;
+        return $user;
     }
 
     /**

@@ -36,11 +36,13 @@ Route::resource('notification', 'NotificationController');
 Route::get('clients/{id}', 'AdminController@clients');
 Route::get('getUsers', 'UserController@getUsers');
 Route::get('getStores', 'StoreController@getStores');
+Route::get('statusStore/{id}', 'StoreController@statusStore');
 Route::get('getStoresById/{id}', 'StoreController@getStoresById');
 Route::get('getProvincias/{id}', 'DrinkscityHelperController@getProvincias');
 Route::get('getComunas/{id}', 'DrinkscityHelperController@getComunas');
 Route::get('getCategoryType/{id}', 'DrinkscityHelperController@getCategoryType');
 Route::get('storePend', 'StoreController@storePend');
+Route::post('userFromStore', 'UserController@userFromStore');
 
 //web
 Route::get('/', 'WebController@index');
