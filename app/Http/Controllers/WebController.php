@@ -52,9 +52,13 @@ class WebController extends Controller
             Image::make($image->getRealPath())->save($path);
             $store->imagen = $filename;
         }
-        $store->save();
-
-        return $store;
+        
+        if ($store->save()) {
+            return 1;
+        }else{
+            return 2;
+        }
+        
 
     }
 

@@ -10,6 +10,7 @@
 		<link href="/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="/css/swiper.min.css">
 		<link href="/css/web.css" rel="stylesheet">
+		<link href="/css/sweetalert.css" rel="stylesheet">
 	<!-- IE-only CSS -->
 	<!--[if lt IE 9]>
 	<link rel="stylesheet" type="text/css" href="css/nomq_preview_master_a-master2.css?crc=99591004"/>
@@ -21,6 +22,7 @@
 	<![endif]-->
 	<!-- jQuery -->
 	<script src="/vendors/jquery/dist/jquery.min.js"></script>
+	<script src="/js/sweetalert.min.js"></script>
 	<script src="https://maps.google.com/maps/api/js?key=AIzaSyCXaC0E0vrBC-XX0PNlEl8V8NlHeKFm-o4&libraries=places" type="text/javascript"></script>
 		<script src="/js/src/user_location.js"></script>
 		<script src="/js/src/web_main.js"></script>

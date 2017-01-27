@@ -51,18 +51,7 @@
 					<label for="">Hora</label>
 					<?= Form::text('hasta',null ,['class' => 'form-control','placeholder'=>'08:00-12:00']); ?>
 				</div>
-				<div class="form-group">
-					<label for="">Seleccione Region</label>
-					<?= Form::select('region_id', $regiones, null, ['class' => 'form-control', 'id'=>'selectRegion']); ?>
-				</div>
-				<div id="selectProvinciaDiv" class="form-group sr-only">
-					<label for="">Seleccione Provincia</label>
-					<?= Form::select('provincias', [], null, ['class' => 'form-control', 'id'=>'selectProvincia']); ?>
-				</div>
-				<div id="selectComunaDiv" class="form-group sr-only">
-					<label for="">Seleccione Comuna</label>
-					<?= Form::select('comuna_id', [], null, ['class' => 'form-control', 'id'=>'selectComuna']); ?>
-				</div>
+				
 
 			</div>
 			<div class="col-xs-12 col-md-6">
@@ -111,6 +100,22 @@
 			$('#sideBack').removeClass('sr-only');
 			$('#saveButton').removeClass('sr-only');
 			$('#mapButton').addClass('sr-only');
+
+
+			$('body').on('click','#saveButton', function(){
+				var data = $('#formStoreCreate').serializeObject();
+				var url = "/storesss"
+				
+
+				$.post(url,data,function(r){
+					console.log(r);
+					if (r == 1) {
+						swal({   title: "Tienda Creada", message:'Pronto nos pondremos en contacto', timer: 2000,   showConfirmButton: false });
+					}else{
+						swal({   title: "Error",  timer: 2000,   showConfirmButton: false });
+					}
+				})
+			})
 		})
 	</script>
 

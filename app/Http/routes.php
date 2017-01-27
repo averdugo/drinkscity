@@ -49,7 +49,7 @@ Route::get('mis_compras', 'WebController@shoppingCar');
 Route::get('eventos', 'WebController@events');
 Route::get('promociones', 'WebController@promos');
 Route::get('storeCreate', 'WebController@storeCreate');
-Route::post('storess', 'WebController@storess');
+Route::post('storesss', 'WebController@storess');
 //logins
 Route::post('adminlogin', 'LoginController@adminlogin');
 Route::get('adminlogout', 'LoginController@adminlogout');
