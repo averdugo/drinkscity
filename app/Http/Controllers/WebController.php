@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+
 use App\User;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\models\{Store, Comuna, Region, Provincia, StoreType, CategoryType};
 use Auth;
-
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Request;
 class WebController extends Controller
 {
     public function index()
