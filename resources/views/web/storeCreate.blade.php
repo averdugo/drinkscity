@@ -1,13 +1,18 @@
 @extends('web.layout')
 
 @section('content')
+	<style type="text/css">
+		#map{
+			height: 350px;
+		}
+	</style>
 	<section id="storesView" class="" style="max-width:800px;margin:0 auto">
 
 		<header class="text-center" style="margin-top:80px">
 			<h2 class="KR">Registra tu Tienda</h2>
 			<img src="/img/linea.png" alt="" height="2" />
 		</header>
-		<form class="" action="/storesss" method="post" enctype="multipart/form-data">
+		<form class="" id="formStoreCreate" action="" method="post" enctype="multipart/form-data">
 
 			 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 			 <input type="hidden" name="status" value="1345">
@@ -88,7 +93,7 @@
 
 			</div>
 			<div class="clearfix "></div>
-			<button type="submit" class="btn btn-primary" >Guardar</button>
+			
 
 		{!! Form::close() !!}
 
@@ -100,6 +105,7 @@
 @section('scripts')
 	<script src="/js/src/user_location.js" ></script>
 	<script src="/js/src/main.js" ></script>
+	<script src="/js/jquery.serialize-object.min.js" ></script>
 	<script type="text/javascript">
 		$(function(){
 			$('#sideBack').removeClass('sr-only');

@@ -54,7 +54,7 @@ class WebController extends Controller
         }
         $store->save();
 
-        return redirect('stores');
+        return $store;
 
     }
 
