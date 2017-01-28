@@ -57,7 +57,7 @@ class WebController extends Controller
         }
 
         if ($store->save()) {
-            $data= "Se ah Creado una nueva Tienda que espera tu aprobacion ".$store->tienda_Nombre '\n revisalo en https://drinkscity.cl/storePend';
+            $data= "Se ah Creado una nueva Tienda que espera tu aprobacion ".$store->tienda_Nombre .'\n revisalo en https://drinkscity.cl/storePend';
             Mail::raw( $data, function ($message) {
                 $message->from('admin@drinkscity', 'Drinkscity');
 
@@ -73,17 +73,20 @@ class WebController extends Controller
 
     public function map()
     {
-        $stores = Store::where('status',1)->where('latitude','!=',null)->get();
-        $data = []
+        $stores = Store::where('status',1)-where('latitude','!=','')->get();
+        $data = [];
         foreach ($stores as $v) {
-            $data .=[
+            $temp=[];
+            $temp =[
                 $v->tienda_Nombre,
                 $v->latitude,
                 $v->longitude
             ];
+            array_push($data,$temp);
         }
+        
 
-         return view('web.map',compact('stores'));
+        return view('web.map',compact('stores'));
     }
 
 
