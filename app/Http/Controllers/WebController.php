@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\User;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\models\{Store, Comuna, Region, Provincia, StoreType, CategoryType};
 use Auth;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Request;
 
 class WebController extends Controller
 {
@@ -60,6 +61,21 @@ class WebController extends Controller
         }
         
 
+    }
+
+    public function map()
+    {
+        $stores = Store::where('status',1)->where('latitude','!=',null)->get();
+        $data = []
+        foreach ($stores as $v) {
+            $data .=[
+                $v->tienda_Nombre,
+                $v->latitude,
+                $v->longitude
+            ];
+        }
+
+         return view('web.map',compact('stores'));
     }
 
 
