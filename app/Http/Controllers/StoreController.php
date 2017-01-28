@@ -9,6 +9,7 @@ use App\User;
 use Illuminate\Support\Facades\Input;
 use Intervention\Image\ImageManagerStatic as Image;
 use Auth;
+use Mail;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Request;
 class StoreController extends Controller
@@ -24,6 +25,7 @@ class StoreController extends Controller
      */
     public function index()
     {
+        
 
         $user = Auth::user();
         $title = "Lista de Tiendas";
@@ -59,6 +61,14 @@ class StoreController extends Controller
             return view('clients.store.create',compact('users', 'regiones', 'tipoTienda','user'));
         }
 
+    }
+
+    public function statusStore($id)
+    {
+        $store = Store::findOrFail($id);
+        $store->status = 1;
+        $store->save();
+        return $store->id;
     }
 
     /**
@@ -116,7 +126,25 @@ class StoreController extends Controller
      */
     public function show($id)
     {
+        $store = Store::findOrFail($id);
+        $tipo_tienda = StoreType::where('id_tipo_tienda',$store->id_tipo_tienda)->first();
+        $store->id_tipo_tienda = $tipo_tienda->Descripcion;
+        if ($store->comuna_id) {
+            $comuna = Comuna::where('comuna_id',$store->comuna_id)->first();
+            $store->comuna_id = $comuna->comuna_nombre;
+        }
+        if ($store->region_id) {
+            $region = Region::where('region_id',$store->region_id)->first();
+            $store->region_id = $region->region_nombre;
+        }
 
+        $store->status = ($store->status == 1)?"Activo":"Pendiente";
+        $user = Auth::user();
+        if ($user->type == 1) {
+            return view('admin.store.view',compact('store'));
+        }else{
+            return view('clients.store.view',compact('store'));
+        }
     }
 
     /**

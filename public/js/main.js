@@ -48,6 +48,23 @@ $(function(){
 		});
 	})
 
+
+    $('.newUser2').click(function(e){
+		e.preventDefault();
+		var data = $('#userCreateForm2').serializeObject();
+		var url = "/userFromStore"
+		$.post(url,data,function(r){
+			if (r) {
+				$('#userCreate2').modal('hide');
+				swal({   title: "Usuario Creado",  timer: 2000,   showConfirmButton: false });
+                setTimeout(function(){
+                    location.reload();
+                }, 2000);
+
+			}
+		});
+	})
+
 	$('#userSelect').on('change', function() {
 	  var val = $(this).val();
 	  $('#userIdStoreCreate').val(val);
@@ -218,12 +235,38 @@ $(function(){
 
 	$('.btnCrearProducto').click(function(e){
 		e.preventDefault();
-		var url = "getStores"
+
+		var url = "getStores";
 		$.get(url,function(r){
-			$('#storeSelect').html(r);
-			$('#productCreate').modal('show');
+
 		})
 	})
+
+    $('body').on('click','.acceptStore', function(e){
+        e.preventDefault();
+        var storeId = $(this).parent().data('id');
+		var url = "statusStore/"+storeId
+        $.get(url,function(r){
+            if (r) {
+                swal({
+                    title: "Tienda Activa",
+                    text: "Ahora Crear Usuario",
+                    type: "success",
+                    showCancelButton: false,
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "Ok",
+                    closeOnConfirm: true,
+
+                }, function(isConfirm){
+                    if (isConfirm) {
+                        $('#storeIdUser').val(r);
+                        $('#userCreate2').modal('show');
+                    };
+                });
+            }
+
+		})
+    })
 
 
 });
