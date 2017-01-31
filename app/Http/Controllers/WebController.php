@@ -71,9 +71,9 @@ class WebController extends Controller
 
     }
 
-    public function map()
+    public function getStoresforMap()
     {
-        $stores = Store::where('status',1)-where('latitude','!=','')->get();
+        $stores = Store::where('status',1)->where('latitude','!=','')->get();
         $data = [];
         foreach ($stores as $v) {
             $temp=[];
@@ -84,9 +84,16 @@ class WebController extends Controller
             ];
             array_push($data,$temp);
         }
+        $data = json_encode($data);
+        return $data;
+    }
+
+    public function map()
+    {
+       
         
 
-        return view('web.map',compact('stores'));
+        return view('web.map');
     }
 
 

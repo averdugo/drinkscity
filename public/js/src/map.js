@@ -2,7 +2,7 @@
 
 google.maps.event.addDomListener(window, 'load', function () {
 	var user_location = new UserLocation(function () {
-		console.log(user_location);
+		
 		var mapOptions = {
 			zoom: 15,
 			center: {
@@ -26,7 +26,8 @@ google.maps.event.addDomListener(window, 'load', function () {
 
 			document.getElementById("latInput").value = place.geometry.location.lat();
 			document.getElementById("lonInput").value = place.geometry.location.lng();
-			
+			console.log(autocomplete);
+			console.log(place);
 
 			if (place.geometry.viewport) {
 				map.fitBounds(place.geometry.viewport);

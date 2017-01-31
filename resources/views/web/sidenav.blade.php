@@ -36,6 +36,7 @@
 			</div>
 			<a href="#" class="KL sideNavItem" data-toggle="modal" data-target="#userCreate">Nuevo Usuario</a>
 			<a href="/storeCreate" class="KL sideNavItem">Registra tu Tienda</a>
+			
 			<br><br><br><br>
 			<div class="text-center">
 				<p class="KL" style="font-size:14px">www.drinkscity.cl</p>
