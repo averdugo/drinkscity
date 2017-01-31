@@ -4,7 +4,7 @@
 
 	<meta http-equiv="Content-type" content="text/html;charset=UTF-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-	<meta name="google-site-verification" content="w9UPS9F5o4brcU_TVmOR3ocCtBh_zhJBiA40ieqdnaE" />
+	<meta name="google-site-verification" content="_Nx9VoDf1IrowexttiCl6JxqfkcUDmNSSIv3HEpOdbA" />
 	<title>Drinkscity</title>
 	<!-- CSS -->
 		<link href="/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">

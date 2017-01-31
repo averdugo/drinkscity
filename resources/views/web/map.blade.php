@@ -17,8 +17,7 @@
 	
 	<script type="text/javascript">
 		$(function(){
-			var	locations = '{{$data}}';
-			console.log(locations);
+		
 			$('#sideBack').removeClass('sr-only');
 			
 			
