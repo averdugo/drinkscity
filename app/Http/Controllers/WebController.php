@@ -91,9 +91,6 @@ class WebController extends Controller
 
     public function map()
     {
-       
-        
-
         return view('web.map');
     }
 
