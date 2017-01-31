@@ -57,6 +57,7 @@
 
 					var data = JSON.parse(r);
 					var image = '/img/marcador.png';
+					
 					for (var i = 0; i < data.length; i++) {
 					    var location = data[i];
 						console.log(location);
