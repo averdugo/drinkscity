@@ -57,6 +57,7 @@ s
 							<div class="form-group">
 								<label for="">Direccion Tienda</label>
 								<?= Form::text('tienda_direccion',null ,['class' => 'form-control']); ?>
+								
 							</div>
 							<div class="form-group">
 								<label for="">Seleccione Region</label>

@@ -26,13 +26,14 @@ google.maps.event.addDomListener(window, 'load', function () {
 
 			document.getElementById("latInput").value = place.geometry.location.lat();
 			document.getElementById("lonInput").value = place.geometry.location.lng();
+			document.getElementById("Direccion").value = place.name;
 			
 
 			if (place.geometry.viewport) {
 				map.fitBounds(place.geometry.viewport);
 			} else {
 				map.setCenter(place.geometry.location);
-				map.setZoom(13);
+				map.setZoom(10);
 			}
 			marker.setPlace({
 				placeId: place.place_id,

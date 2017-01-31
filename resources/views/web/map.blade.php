@@ -22,8 +22,23 @@
 		$(function(){
 
 			$.get('/getStoresforMap',function(r){
-				
+
 				console.log(r);
+
+				for (var i = 0; i < r.length; i++) {
+				    var location = r[i];
+				    var marker = new google.maps.Marker({
+				      position: {lat: location[1], lng: location[2]},
+				      map: map,
+				      title: location[0]
+				    });
+
+				    marker.addListener('click', function(){
+				    	location.href="tienda/"+location[3]
+				    });
+				  }
+
+
 			})
 
 		

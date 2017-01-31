@@ -80,7 +80,8 @@ class WebController extends Controller
             $temp =[
                 $v->tienda_Nombre,
                 $v->latitude,
-                $v->longitude
+                $v->longitude,
+                $v->id
             ];
             array_push($data,$temp);
         }

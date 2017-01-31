@@ -75,6 +75,7 @@
 								<div id="map"></div>
 								<input id="latInput" type="hidden" name="latitude" value="">
 								<input id="lonInput" type="hidden" name="longitude" value="">
+								<input id="Direccion" type="hidden" name="tienda_direccion" value="">
 							</div>
 							
 							<div class="form-group">

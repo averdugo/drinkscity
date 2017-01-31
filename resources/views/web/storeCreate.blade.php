@@ -51,7 +51,18 @@
 					<label for="">Hora</label>
 					<?= Form::text('hasta',null ,['class' => 'form-control','placeholder'=>'08:00-12:00']); ?>
 				</div>
-
+				<div class="form-group">
+					<label for="">Seleccione Region</label>
+					<?= Form::select('region_id', $regiones, null, ['class' => 'form-control', 'id'=>'selectRegion']); ?>
+				</div>
+				<div id="selectProvinciaDiv" class="form-group sr-only">
+					<label for="">Seleccione Provincia</label>
+					<?= Form::select('provincias', [], null, ['class' => 'form-control', 'id'=>'selectProvincia']); ?>
+				</div>
+				<div id="selectComunaDiv" class="form-group sr-only">
+					<label for="">Seleccione Comuna</label>
+					<?= Form::select('comuna_id', [], null, ['class' => 'form-control', 'id'=>'selectComuna']); ?>
+				</div>
 
 			</div>
 			<div class="col-xs-12 col-md-6">
@@ -61,6 +72,7 @@
 					<div id="map"></div>
 					<input id="latInput" type="hidden" name="latitude" value="">
 					<input id="lonInput" type="hidden" name="longitude" value="">
+					<input id="Direccion" type="hidden" name="tienda_direccion" value="">
 				</div>
 
 				<div class="form-group">
@@ -101,6 +113,41 @@
 			$('#saveButton').removeClass('sr-only');
 			$('#mapButton').addClass('sr-only');
 
+			$('#selectRegion').on('change', function() {
+
+				var url ="/getProvincias/"+ this.value;
+				$.get(url,function(r){
+					$('#selectProvincia').html('');
+					select = document.getElementById('selectProvincia');
+					$.each( r, function( key, value ) {
+					  	var opt = document.createElement('option');
+					    opt.value = value.provincia_id;
+					    opt.innerHTML = value.provincia_nombre;
+					    select.appendChild(opt);
+					});
+
+					$('#selectProvinciaDiv').removeClass('sr-only');
+
+				})
+			})
+
+			$('#selectProvincia').on('change', function() {
+
+				var url ="/getComunas/"+ this.value;
+				$.get(url,function(r){
+					$('#selectComuna').html('');
+					select = document.getElementById('selectComuna');
+					$.each( r, function( key, value ) {
+					  	var opt = document.createElement('option');
+					    opt.value = value.comuna_id;
+					    opt.innerHTML = value.comuna_nombre;
+					    select.appendChild(opt);
+					});
+
+					$('#selectComunaDiv').removeClass('sr-only');
+
+				})
+			})
 
 			$('body').on('click','#saveButton', function(){
 				var data = $('#formStoreCreate').serializeObject();
