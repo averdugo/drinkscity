@@ -85,7 +85,7 @@ class WebController extends Controller
             ];
             array_push($data,$temp);
         }
-        $data = json_encode($data);
+        $data = json_encode($data,JSON_NUMERIC_CHECK);
         return $data;
     }
 

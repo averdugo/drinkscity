@@ -14,21 +14,27 @@
 
 @section('scripts')
 	<script src="/js/src/user_location.js" ></script>
-	<script src="/js/src/map.js" ></script>
+	
 	
 	<script type="text/javascript">
 		
-		console.log(locations);
+	
 		$(function(){
 
 			$.get('/getStoresforMap',function(r){
 
-				console.log(r);
-
-				for (var i = 0; i < r.length; i++) {
-				    var location = r[i];
+				
+				var data = JSON.parse(r);
+				
+				var map = new google.maps.Map(document.getElementById('map'), {
+					    zoom: 10,
+					    center: {lat: -33.9, lng: 151.2}
+				  });
+				for (var i = 0; i < data.length; i++) {
+				    var location = data[i];
+					console.log(location);
 				    var marker = new google.maps.Marker({
-				      position: {lat: location[1], lng: location[2]},
+				      position: {lat:location[1], lng:location[2]},
 				      map: map,
 				      title: location[0]
 				    });
