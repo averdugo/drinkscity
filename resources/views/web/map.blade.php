@@ -69,8 +69,9 @@
 					    });
 
 					    google.maps.event.addListener(marker, 'click', function() {
-					    	$.get(marker.url,function(r){
-					    		$('#dataModalStore').html(r);
+					    	$.get(marker.url,function(result){
+
+					    		$('#dataModalStore').html(result);
 					    		$('#storeData').modal('show');
 					    	})
 					    });

@@ -53,7 +53,7 @@ Route::get('promociones', 'WebController@promos');
 Route::get('storeCreate', 'WebController@storeCreate');
 Route::post('storesss', 'WebController@storess');
 Route::get('getStoresforMap', 'WebController@getStoresforMap');
-Route::get('getDataStore/{id}', 'WebController@getStoresforMap');
+Route::get('getDataStore/{id}', 'WebController@getDataStore');
 
 Route::get('map', 'WebController@map');
 //logins

@@ -10,7 +10,9 @@
 
 					<div id="dataModalStore"></div>
 					<div>
-						<button class="btn btn-primary" style="padding: 30px">
+						<br>
+						<br><br>
+						<button class="btn btn-primary btn-block" style="padding: 10px">
 							AVISOS
 						</button>
 					</div>
