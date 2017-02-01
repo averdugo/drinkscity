@@ -62,6 +62,7 @@
 
 		<!-- Bootstrap -->
 		<script src="/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="/vendors/bootstrap/dist/js/web.js"></script>
 
 		@include('web.partials.userCreateModal')
 		@include('web.partials.storeData')

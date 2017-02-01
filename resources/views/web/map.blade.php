@@ -18,7 +18,15 @@
 	
 	
 	<script type="text/javascript">
-		
+		function showDetails(a)
+		{
+			var url="getDataStore/"+a;
+			$.get(url,function(){
+				$('#dataModalStore').html(result);
+				$('#storeData').modal('show');
+			})
+			
+		}
 	
 		$(function(){
 
@@ -27,7 +35,7 @@
 				var user_location = new UserLocation(function () {
 					var myLatlng = new google.maps.LatLng(user_location.latitud,user_location.longitud);
 					var mapOptions = {
-						zoom: 8,
+						zoom: 13,
 						center: myLatlng
 					};
 					
@@ -63,18 +71,16 @@
 					      position: {lat:location[1], lng:location[2]},
 					      map: map,
 					      icon: image,
-					      url:"/getDataStore/"+location[3],
+					      url:"/tienda/"+location[3],
 					      animation:google.maps.Animation.DROP,
 					      title: location[0]
 					    });
+					    (function (marker, data) {
+		                    google.maps.event.addListener(marker, "click", function (e) {
+		                        showDetails(location[3])
+		                    });
+		                })(marker, location);
 
-					    google.maps.event.addListener(marker, 'click', function() {
-					    	$.get(marker.url,function(result){
-
-					    		$('#dataModalStore').html(result);
-					    		$('#storeData').modal('show');
-					    	})
-					    });
 					}
 					
 				})
