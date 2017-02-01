@@ -6,7 +6,7 @@ namespace App\Http\Controllers;
 use App\User;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\models\{Store, Comuna, Region, Provincia, StoreType, CategoryType};
+use App\models\{Store, Comuna, Region, Provincia, StoreType, CategoryType,Aviso,AvisoType};
 use Auth;
 use Mail;
 use Illuminate\Support\Facades\Input;
@@ -69,6 +69,44 @@ class WebController extends Controller
         }
 
 
+    }
+    public function store($id)
+    {
+        $store = Store::findOrFail($id);
+        
+        return view('web.store',compact('avisos', 'store'));
+    }
+
+    public function getDataStore($id)
+    {
+        $store = Store::findOrFail($id);
+        $tipo_tienda = StoreType::where('id_tipo_tienda',$store->id_tipo_tienda)->first();
+        $store->id_tipo_tienda = $tipo_tienda->Descripcion;
+      
+
+        $html = "";
+
+        
+        $html = sprintf('<div class="media" style="height: 170px;margin-top:30px">
+                    <div class="media-left">
+                        <a href="#" style="position:relative">
+                            <img class="" src="/img/stores/%s" alt="..." style="    width: 200px;">
+                            <img class="claStores" src="/img/calificacion.png" alt="" />
+                        </a>
+                    </div>
+                    <div class="media-body text-left" style="position:relative;    padding-top: 2px;">
+                        <h4 class="media-heading KR" style="text-transform:uppercase">%s</h4>
+                        <h5 class="media-heading KL">%s</h5>
+                        <p class="KL">Horario : <small>%s / %s</small></p>
+                        <p class="KL">%s</small></p>
+                    </div>
+                </div>'
+
+
+            ,$store->imagen, $store->tienda_Nombre, $store->id_tipo_tienda, $store->desde, $store->hasta, $store->tienda_fono );
+        
+
+        return $html;
     }
 
     public function getStoresforMap()

@@ -3,7 +3,7 @@
 	<head>
 
 	<meta http-equiv="Content-type" content="text/html;charset=UTF-8"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0,  user-scalable=no">
 	<meta name="google-site-verification" content="_Nx9VoDf1IrowexttiCl6JxqfkcUDmNSSIv3HEpOdbA" />
 	<title>Drinkscity</title>
 	<!-- CSS -->
@@ -64,6 +64,7 @@
 		<script src="/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
 
 		@include('web.partials.userCreateModal')
+		@include('web.partials.storeData')
 		
 		@yield('scripts')
 

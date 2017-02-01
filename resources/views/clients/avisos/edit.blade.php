@@ -58,7 +58,7 @@
 								<?= Form::text('stock',null ,['class' => 'form-control']); ?>
 							</div>
 							<div class="form-group">
-								<label for="">Rango Fechas</label>
+								<label for="">Rango de Fecha para Activar Aviso</label>
 								<?= Form::text('rango_fecha',null ,['class' => 'date-picker form-control']); ?>
 							</div>
 

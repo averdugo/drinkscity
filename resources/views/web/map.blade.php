@@ -4,6 +4,7 @@
 	<style type="text/css">
 		#map{
 			height: 350px;
+			width: : 100%;
 		}
 	</style>
 	<section id="mapView" class="" style="max-width:800px;margin:0 auto;margin-top:80px">
@@ -26,7 +27,7 @@
 				var user_location = new UserLocation(function () {
 					var myLatlng = new google.maps.LatLng(user_location.latitud,user_location.longitud);
 					var mapOptions = {
-						zoom: 15,
+						zoom: 8,
 						center: myLatlng
 					};
 					
@@ -36,10 +37,7 @@
 					var searchInput = document.getElementById('searchInput');
 					var autocomplete = new google.maps.places.Autocomplete(searchInput);
 
-					var marker = new google.maps.Marker({
-						map: map,
-						position: myLatlng,
-					});
+					
 
 					autocomplete.bindTo('bounds', map);
 					google.maps.event.addListener(autocomplete, "place_changed", function () {
@@ -57,7 +55,7 @@
 
 					var data = JSON.parse(r);
 					var image = '/img/marcador.png';
-					
+					var infowindow = new google.maps.InfoWindow();
 					for (var i = 0; i < data.length; i++) {
 					    var location = data[i];
 						console.log(location);
@@ -65,14 +63,19 @@
 					      position: {lat:location[1], lng:location[2]},
 					      map: map,
 					      icon: image,
-					      url:"/tienda/"+location[3]
+					      url:"/getDataStore/"+location[3],
 					      animation:google.maps.Animation.DROP,
 					      title: location[0]
 					    });
 
-					    
+					    google.maps.event.addListener(marker, 'click', function() {
+					    	$.get(marker.url,function(r){
+					    		$('#dataModalStore').html(r);
+					    		$('#storeData').modal('show');
+					    	})
+					    });
 					}
-					google.maps.event.addListener(marker, 'click', function() {window.location.href = marker.url;});
+					
 				})
 			})
 
