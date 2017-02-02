@@ -17,7 +17,27 @@ class WebController extends Controller
     public function index()
     {
         $user = Auth::user();
-        return view('web.home',compact('user'));
+
+        $slides = Aviso::where('id_tipo_aviso',6)->get();
+        $destacados = Aviso::where('id_tipo_aviso',5)->get();
+        foreach ($destacados as $d) {
+            $store = Store::where('id',$d->store_id);
+            $d->store_id = $store->tienda_Nombre;
+        }
+        $promociones = Aviso::where('id_tipo_aviso',3)->get();
+        foreach ($promociones as $p) {
+            $store = Store::where('id',$p->store_id);
+            $p->store_id = $store->tienda_Nombre;
+        }
+        $avisos = Aviso::where('id_tipo_aviso',1)->get();
+        foreach ($avisos as $a) {
+            $store = Store::where('id',$a->store_id);
+            $a->store_id = $store->tienda_Nombre;
+        }
+        
+       
+
+        return view('web.home',compact('user','slides','destacados','promociones','avisos'));
     }
     public function stores()
 	{

@@ -9,12 +9,14 @@
         <div class="active item">
 			<img src="/img/dc.jpg" alt="" />
 		</div>
-        <div class="item">
-			<img src="/img/dc.jpg" alt="" />
-		</div>
-        <div class="item">
-			<img src="/img/dc.jpg" alt="" />
-		</div>
+		@foreach ($slides as $slide)
+		    <div class="item">
+		    	<a href="/aviso/{{$slide->id}}">
+		    		<img src="/img/{{$slide->imagen}}" alt="{{$slide->titulo}}" />
+		    	</a>
+				
+			</div>
+		@endforeach
     </div>
 
 </div>

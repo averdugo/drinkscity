@@ -34,7 +34,7 @@
 				<img src="/img/drinkscity.png" alt="" width="90px"/><br><br>
 
 			</div>
-			<a href="#" class="KL sideNavItem" data-toggle="modal" data-target="#userCreate">Nuevo Usuario</a>
+			<a href="#" class="KL sideNavItem sr-only" data-toggle="modal" data-target="#userCreate">Nuevo Usuario</a>
 			<a href="/storeCreate" class="KL sideNavItem">Registra tu Tienda</a>
 			
 			<br><br><br><br>

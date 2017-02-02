@@ -3,23 +3,19 @@
 </div>
 <div class="swiper-container">
 	<div class="swiper-wrapper">
-		@for ($i = 0; $i < 10; $i++)
-
+		@foreach ($destacados as $des)
 			<div class="swiper-slide anuncioBox" >
-
 				<div class="anuncioImgbox">
-					<img src="/img/avisos/rec1.jpg" alt="" class="avisoImg" />
+					<img src="/img/avisos/{{$des->imagen}}" alt="" class="avisoImg" />
 				</div>
 				<div class="">
-					<span class="tituloHomeShow">Vodka Absolut 1lt</span><br>
-					<span class="tiendaHomeShow">Drinkscity.cl</span><br>
-					<span class="precioHomeShow">$10.000</span><br>
-					<span class="distanciaHomeShow">3km</span>
+					<span class="tituloHomeShow">{{$des->titulo}}</span><br>
+					<span class="tiendaHomeShow">{{$des->store_id}}</span><br>
+					<span class="precioHomeShow">{{$des->precio}}</span><br>
+					<span class="distanciaHomeShow"></span>
 				</div>
-
 			</div>
-
-		@endfor
+		@endforeach
 	</div>
 	<!-- Add Pagination -->
 	<div class="swiper-pagination"></div>
