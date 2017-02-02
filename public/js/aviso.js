@@ -1,5 +1,9 @@
 $(function(){
-	$('input.date-picker').daterangepicker();
+	$('input.date-picker').daterangepicker({
+		locale: {
+            format: 'DD/MM/YYYY'
+        }
+	});
 
 	$('#CategorySelect').on('change',function(){
 		var category = $(this).val();

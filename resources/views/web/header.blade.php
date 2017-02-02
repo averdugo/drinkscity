@@ -13,7 +13,7 @@
 			<form class="form-inline">
 			  <div class="form-group formDivHeader">
 			    <div class="input-group" style="max-width: 400px;    width: 100%;    margin-top: 7px;">
-			      <input type="text" class="form-control" id="exampleInputAmount" placeholder="Buscar por palabra clave.." style="text-align:center">
+			      <input type="text" class="form-control" id="exampleInputAmount" placeholder="¿Qué quieres para hoy?" style="text-align:center">
 			      <div class="input-group-addon"><i class="glyphicon glyphicon-search"></i></div>
 			    </div>
 			  </div>

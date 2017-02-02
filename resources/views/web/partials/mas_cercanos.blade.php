@@ -4,7 +4,7 @@
 <div class="" style="padding-left: 35px;">
 
 		@foreach ($promociones as $pros)
-			<div class="col-xs-12 col-sm-6 col-md-3 anuncioBox" style="margin-bottom:20px;">
+			<div class="col-xs-12 col-sm-6 col-md-3 anuncioBox" style="margin-bottom:10px;">
 				<div class="anuncioImgbox">
 					<img src="/img/avisos/{{$pros->imagen}}" alt="" class="avisoImg" />
 				</div>
@@ -18,7 +18,7 @@
 
 		@endforeach
 		@foreach ($avisos as $avi)
-			<div class="col-xs-12 col-sm-6 col-md-3 anuncioBox" style="margin-bottom:20px;">
+			<div class="col-xs-12 col-sm-6 col-md-3 anuncioBox" style="margin-bottom:10px;">
 				<div class="anuncioImgbox">
 					<img src="/img/avisos/{{$avi->imagen}}" alt="" class="avisoImg" />
 				</div>

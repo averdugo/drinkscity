@@ -229,7 +229,7 @@ body,
     }
 
 .avisoImg{
-    max-height: 290px;
+    height: 290px;
     width: 100%;
 	height: auto;
     border:1px solid #00c5da;
@@ -290,6 +290,9 @@ body,
 }
 
 @media(max-width: 425px){
+    .swiper-slide{
+        margin-left: 40px;
+    }
     .navP{
         padding: 0 0px;
     }
