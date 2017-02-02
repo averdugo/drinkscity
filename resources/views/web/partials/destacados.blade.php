@@ -3,15 +3,15 @@
 </div>
 <div class="swiper-container">
 	<div class="swiper-wrapper">
-		@foreach ($destacados as $des)
+		@foreach ($destacados as $destacado)
 			<div class="swiper-slide anuncioBox" >
 				<div class="anuncioImgbox">
-					<img src="/img/avisos/{{$des->imagen}}" alt="" class="avisoImg" />
+					<img src="/img/avisos/{{$destacado->imagen}}" alt="" class="avisoImg" />
 				</div>
 				<div class="">
-					<span class="tituloHomeShow">{{$des->titulo}}</span><br>
-					<span class="tiendaHomeShow">{{$des->store_id}}</span><br>
-					<span class="precioHomeShow">{{$des->precio}}</span><br>
+					<span class="tituloHomeShow">{{$destacado->titulo}}</span><br>
+					<span class="tiendaHomeShow">{{$destacado->store_id}}</span><br>
+					<span class="precioHomeShow">{{$destacado->precio}}</span><br>
 					<span class="distanciaHomeShow"></span>
 				</div>
 			</div>
