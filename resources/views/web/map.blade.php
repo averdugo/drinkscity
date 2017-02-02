@@ -21,7 +21,7 @@
 		function showDetails(a)
 		{
 			var url="getDataStore/"+a;
-			$.get(url,function(){
+			$.get(url,function(result){
 				$('#dataModalStore').html(result);
 				$('#storeData').modal('show');
 			})
@@ -75,7 +75,7 @@
 					      animation:google.maps.Animation.DROP,
 					      title: location[0]
 					    });
-					    (function (marker, data) {
+					    (function (marker, location) {
 		                    google.maps.event.addListener(marker, "click", function (e) {
 		                        showDetails(location[3])
 		                    });
