@@ -1,5 +1,5 @@
 <div class="text-center" style="padding-top:8px">
-	<h3>Destacados</h3>
+	<h3>DESTACADOS</h3>
 </div>
 <div class="swiper-container">
 	<div class="swiper-wrapper">

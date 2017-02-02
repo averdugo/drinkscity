@@ -229,7 +229,7 @@ body,
     }
 
 .avisoImg{
-
+    max-height: 290px;
     width: 100%;
 	height: auto;
     border:1px solid #00c5da;
