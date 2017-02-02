@@ -21,17 +21,17 @@ class WebController extends Controller
         $slides = Aviso::where('id_tipo_aviso',6)->get();
         $destacados = Aviso::where('id_tipo_aviso',5)->get();
         foreach ($destacados as $d) {
-            $store = Store::where('id',$d->store_id);
+            $store = Store::where('id',$d->store_id)->first();
             $d->store_id = $store->tienda_Nombre;
         }
         $promociones = Aviso::where('id_tipo_aviso',3)->get();
         foreach ($promociones as $p) {
-            $store = Store::where('id',$p->store_id);
+            $store = Store::where('id',$p->store_id)->first();
             $p->store_id = $store->tienda_Nombre;
         }
         $avisos = Aviso::where('id_tipo_aviso',1)->get();
         foreach ($avisos as $a) {
-            $store = Store::where('id',$a->store_id);
+            $store = Store::where('id',$a->store_id)->first();
             $a->store_id = $store->tienda_Nombre;
         }
         
